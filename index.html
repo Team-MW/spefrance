@@ -1,0 +1,102 @@
+import React from "react";
+
+export default function Site() {
+  return (
+    <div className="font-sans text-gray-800">
+      {/* HEADER */}
+      <header className="bg-blue-600 text-white p-6 shadow-lg">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <h1 className="text-3xl font-bold">SPE FRANCE</h1>
+          <nav className="space-x-6 text-lg">
+            <a href="#accueil" className="hover:underline">Accueil</a>
+            <a href="#apropos" className="hover:underline">À propos</a>
+            <a href="#services" className="hover:underline">Services</a>
+            <a href="#contact" className="hover:underline">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section id="accueil" className="bg-gray-100 py-20 text-center">
+        <h2 className="text-4xl font-bold mb-4">Experts en Plomberie, Électricité, Chauffage & Climatisation à Toulouse</h2>
+        <p className="text-xl mb-6">Service d'urgence 24h/24 – 7j/7 !</p>
+        <a href="tel:0780080990" className="bg-red-600 text-white px-6 py-3 rounded-xl text-xl shadow hover:bg-red-700">UNE URGENCE ? APPELEZ-NOUS MAINTENANT !</a>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" className="max-w-6xl mx-auto py-20">
+        <h2 className="text-3xl font-bold text-center mb-12">NOS SERVICES</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Plomberie */}
+          <div className="bg-white p-8 rounded-2xl shadow">
+            <h3 className="text-2xl font-bold mb-3">Plomberie</h3>
+            <p>Installation, réparation et dépannage : fuites, robinetterie, chauffe-eau, toilettes, canalisations — interventions 7j/7.</p>
+          </div>
+
+          {/* Électricité */}
+          <div className="bg-white p-8 rounded-2xl shadow">
+            <h3 className="text-2xl font-bold mb-3">Électricité</h3>
+            <p>Travaux d’électricité générale, mise aux normes, tableaux électriques et dépannage rapide.</p>
+          </div>
+
+          {/* Chauffage */}
+          <div className="bg-white p-8 rounded-2xl shadow">
+            <h3 className="text-2xl font-bold mb-3">Chauffage & Chaudières</h3>
+            <p>Installation, entretien et réparation de chaudières gaz, électriques et fioul.</p>
+          </div>
+
+          {/* Climatisation */}
+          <div className="bg-white p-8 rounded-2xl shadow">
+            <h3 className="text-2xl font-bold mb-3">Climatisation & Ventilation</h3>
+            <p>Pose, réparation et maintenance de climatisation réversible et VMC.</p>
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="tel:0780080990" className="bg-red-500 text-white px-6 py-3 rounded-xl text-xl shadow hover:bg-red-700">UNE URGENCE ? APPELEZ-NOUS MAINTENANT !</a>
+        </div>
+      </section>
+
+      {/* AVIS CLIENTS */}
+      <section className="bg-gray-50 py-20">
+        <h2 className="text-3xl font-bold text-center mb-10">Avis de nos clients</h2>
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="bg-white p-6 rounded-xl shadow">
+            <p className="italic">“Intervention rapide et très professionnelle ! Fuite réparée dans l’heure.”</p>
+            <p className="font-bold mt-2">— Julie R. (Colomiers)</p>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow">
+            <p className="italic">“Installation de climatisation réversible. Travail propre et ponctuel.”</p>
+            <p className="font-bold mt-2">— Karim B. (Toulouse)</p>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow">
+            <p className="italic">“Panne électrique réparée dans la journée. Très pro.”</p>
+            <p className="font-bold mt-2">— Alain M. (Blagnac)</p>
+          </div>
+        </div>
+
+        <div className="text-center mt-10">
+          <a href="#contact" className="text-blue-600 underline text-lg">Laisser un avis ? Cliquez ici !</a>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="max-w-4xl mx-auto py-20">
+        <h2 className="text-3xl font-bold mb-6 text-center">Contact</h2>
+        <div className="bg-white shadow p-8 rounded-2xl">
+          <p className="text-lg mb-2"><strong>Adresse :</strong> 244 Route de Seysses</p>
+          <p className="text-lg mb-2"><strong>Téléphone :</strong> 07 80 08 09 90</p>
+          <p className="text-lg"><strong>Email :</strong> Spefrance@contact.fr</p>
+        </div>
+        <div className="text-center mt-10">
+          <a href="tel:0780080990" className="bg-red-600 text-white px-6 py-3 rounded-xl text-xl shadow hover:bg-red-700">APPELER MAINTENANT</a>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-gray-900 text-white text-center py-6 mt-20">
+        <p>Copyright © 2025 SPE France | Powered by MICRODIDACT</p>
+      </footer>
+    </div>
+  );
+}
