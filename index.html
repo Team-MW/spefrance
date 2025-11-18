@@ -1,102 +1,106 @@
-import React from "react";
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPE FRANCE – Services Professionnels</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif;}
+    body {background:white; color:#222;}
 
-export default function Site() {
-  return (
-    <div className="font-sans text-gray-800">
-      {/* HEADER */}
-      <header className="bg-blue-600 text-white p-6 shadow-lg">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-bold">SPE FRANCE</h1>
-          <nav className="space-x-6 text-lg">
-            <a href="#accueil" className="hover:underline">Accueil</a>
-            <a href="#apropos" className="hover:underline">À propos</a>
-            <a href="#services" className="hover:underline">Services</a>
-            <a href="#contact" className="hover:underline">Contact</a>
-          </nav>
-        </div>
-      </header>
+    /* HEADER */
+    header {width:100%; padding:25px 40px; display:flex; justify-content:space-between; align-items:center; background:white; border-bottom:1px solid #e5e5e5; position:sticky; top:0; z-index:99;}
+    header h1 {font-size:26px; color:#0d47a1; letter-spacing:1px;}
+    nav a {margin:0 15px; text-decoration:none; color:#333; font-weight:bold; transition:0.3s;} 
+    nav a:hover {color:#0d47a1;}
 
-      {/* HERO */}
-      <section id="accueil" className="bg-gray-100 py-20 text-center">
-        <h2 className="text-4xl font-bold mb-4">Experts en Plomberie, Électricité, Chauffage & Climatisation à Toulouse</h2>
-        <p className="text-xl mb-6">Service d'urgence 24h/24 – 7j/7 !</p>
-        <a href="tel:0780080990" className="bg-red-600 text-white px-6 py-3 rounded-xl text-xl shadow hover:bg-red-700">UNE URGENCE ? APPELEZ-NOUS MAINTENANT !</a>
-      </section>
+    /* HERO */
+    .hero {padding:100px 20px; text-align:center; background:white;}
+    .hero img {width:100%; max-width:900px; border-radius:15px; margin-bottom:30px;}
+    .hero h2 {font-size:38px; margin-bottom:15px; color:#0d47a1;}
+    .hero p {font-size:20px; color:#555;}
+    .btn-main {margin-top:25px; display:inline-block; padding:15px 30px; font-size:20px; background:#0d47a1; color:white; border-radius:10px; text-decoration:none; transition:0.3s;} 
+    .btn-main:hover {background:#08306b;}
 
-      {/* SERVICES */}
-      <section id="services" className="max-w-6xl mx-auto py-20">
-        <h2 className="text-3xl font-bold text-center mb-12">NOS SERVICES</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Plomberie */}
-          <div className="bg-white p-8 rounded-2xl shadow">
-            <h3 className="text-2xl font-bold mb-3">Plomberie</h3>
-            <p>Installation, réparation et dépannage : fuites, robinetterie, chauffe-eau, toilettes, canalisations — interventions 7j/7.</p>
-          </div>
+    /* SECTIONS */
+    .section {padding:80px 20px; max-width:1250px; margin:auto;}
+    .section h2 {text-align:center; font-size:34px; margin-bottom:40px; color:#0d47a1;}
 
-          {/* Électricité */}
-          <div className="bg-white p-8 rounded-2xl shadow">
-            <h3 className="text-2xl font-bold mb-3">Électricité</h3>
-            <p>Travaux d’électricité générale, mise aux normes, tableaux électriques et dépannage rapide.</p>
-          </div>
+    /* SERVICE CARDS */
+    .services {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;}
+    .card {background:white; border-radius:15px; padding:20px; border:1px solid #e5e5e5; box-shadow:0 4px 15px rgba(0,0,0,0.07); transition:0.3s;}
+    .card:hover {transform:translateY(-5px);}
+    .card img {width:100%; border-radius:10px; margin-bottom:15px;}
+    .card h3 {color:#08306b; margin-bottom:10px;}
+    .card p {color:#555;}
 
-          {/* Chauffage */}
-          <div className="bg-white p-8 rounded-2xl shadow">
-            <h3 className="text-2xl font-bold mb-3">Chauffage & Chaudières</h3>
-            <p>Installation, entretien et réparation de chaudières gaz, électriques et fioul.</p>
-          </div>
+    /* FOOTER */
+    footer {margin-top:40px; padding:30px; text-align:center; background:#fafafa; border-top:1px solid #e5e5e5; color:#555;}
+  </style>
+</head>
+<body>
 
-          {/* Climatisation */}
-          <div className="bg-white p-8 rounded-2xl shadow">
-            <h3 className="text-2xl font-bold mb-3">Climatisation & Ventilation</h3>
-            <p>Pose, réparation et maintenance de climatisation réversible et VMC.</p>
-          </div>
-        </div>
+<header>
+  <h1>SPE FRANCE</h1>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#avis">Avis</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-        <div className="text-center mt-12">
-          <a href="tel:0780080990" className="bg-red-500 text-white px-6 py-3 rounded-xl text-xl shadow hover:bg-red-700">UNE URGENCE ? APPELEZ-NOUS MAINTENANT !</a>
-        </div>
-      </section>
+<section class="section" id="services">
+  <h2>Nos Services</h2>
+  <div class="services">
 
-      {/* AVIS CLIENTS */}
-      <section className="bg-gray-50 py-20">
-        <h2 className="text-3xl font-bold text-center mb-10">Avis de nos clients</h2>
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="bg-white p-6 rounded-xl shadow">
-            <p className="italic">“Intervention rapide et très professionnelle ! Fuite réparée dans l’heure.”</p>
-            <p className="font-bold mt-2">— Julie R. (Colomiers)</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <p className="italic">“Installation de climatisation réversible. Travail propre et ponctuel.”</p>
-            <p className="font-bold mt-2">— Karim B. (Toulouse)</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow">
-            <p className="italic">“Panne électrique réparée dans la journée. Très pro.”</p>
-            <p className="font-bold mt-2">— Alain M. (Blagnac)</p>
-          </div>
-        </div>
-
-        <div className="text-center mt-10">
-          <a href="#contact" className="text-blue-600 underline text-lg">Laisser un avis ? Cliquez ici !</a>
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section id="contact" className="max-w-4xl mx-auto py-20">
-        <h2 className="text-3xl font-bold mb-6 text-center">Contact</h2>
-        <div className="bg-white shadow p-8 rounded-2xl">
-          <p className="text-lg mb-2"><strong>Adresse :</strong> 244 Route de Seysses</p>
-          <p className="text-lg mb-2"><strong>Téléphone :</strong> 07 80 08 09 90</p>
-          <p className="text-lg"><strong>Email :</strong> Spefrance@contact.fr</p>
-        </div>
-        <div className="text-center mt-10">
-          <a href="tel:0780080990" className="bg-red-600 text-white px-6 py-3 rounded-xl text-xl shadow hover:bg-red-700">APPELER MAINTENANT</a>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-gray-900 text-white text-center py-6 mt-20">
-        <p>Copyright © 2025 SPE France | Powered by MICRODIDACT</p>
-      </footer>
+    <div class="card">
+      <img src="assets/electricien-1536x1536.jpg" alt="Plombier en action">
+      <h3>🚿 Plomberie</h3>
+      <p>Fuites, chauffe-eaux, débouchage, canalisations et installations.</p>
     </div>
-  );
-}
+
+    <div class="card">
+      <img src="assets/climatiste-300x300.png" alt="Électricien professionnel">
+      <h3>💡 Électricité</h3>
+      <p>Mise aux normes, tableaux électriques, interventions rapides.</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/ChatGPT-Image-11-nov.-2025-16_18_12-300x300.png" alt="Chauffage installation">
+      <h3>🔥 Chauffage & Chaudières</h3>
+      <p>Installation, entretien et dépannage gaz, fioul, électrique.</p>
+    </div>
+
+    <!--<div class="card">
+      <img src="https://images.unsplash.com/photo-1621905251918-3e77c3e2bf47?auto=format&fit=crop&w=800&q=80" alt="Technicien climatisation">
+      <h3>❄️ Climatisation & VMC</h3>
+      <p>Installation clim réversible, ventilation, entretien complet.</p>
+    </div>
+-->
+  </div>
+</section>
+
+<section class="section" id="avis">
+  <h2>Avis Clients</h2>
+  <div class="services">
+    <div class="card"><p>“Intervention rapide et très professionnelle !”</p><strong>– Julie, Colomiers</strong></div>
+    <div class="card"><p>“Clim installée parfaitement, merci à l'équipe.”</p><strong>– Karim, Toulouse</strong></div>
+    <div class="card"><p>“Panne électrique réparée dans la journée.”</p><strong>– Alain, Blagnac</strong></div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p style="text-align:center; margin-top:20px; font-size:18px;">Adresse : 244 Route de Seysses<br>Tél : 07 80 08 09 90<br>Email : Spefrance@contact.fr</p>
+  <div style="text-align:center; margin-top:25px;">
+    <a href="tel:0780080990" class="btn-main">APPELER MAINTENANT</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 SPE FRANCE – Powered by MICRODIDACT
+</footer>
+
+</body>
+</html>
