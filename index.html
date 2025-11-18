@@ -6,36 +6,39 @@
   <title>SPE FRANCE – Services Professionnels</title>
   <style>
     * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif;}
-    body {background:white; color:#222;}
+    body {background:#f9f9f9; color:#222;}
 
     /* HEADER */
     header {width:100%; padding:25px 40px; display:flex; justify-content:space-between; align-items:center; background:white; border-bottom:1px solid #e5e5e5; position:sticky; top:0; z-index:99;}
-    header h1 {font-size:26px; color:#0d47a1; letter-spacing:1px;}
-    nav a {margin:0 15px; text-decoration:none; color:#333; font-weight:bold; transition:0.3s;} 
+    header h1 {font-size:28px; color:#0d47a1; font-weight:bold; letter-spacing:1px;}
+    nav a {margin:0 15px; text-decoration:none; color:#333; font-weight:600; transition:0.3s;} 
     nav a:hover {color:#0d47a1;}
 
     /* HERO */
-    .hero {padding:100px 20px; text-align:center; background:white;}
-    .hero img {width:100%; max-width:900px; border-radius:15px; margin-bottom:30px;}
-    .hero h2 {font-size:38px; margin-bottom:15px; color:#0d47a1;}
-    .hero p {font-size:20px; color:#555;}
-    .btn-main {margin-top:25px; display:inline-block; padding:15px 30px; font-size:20px; background:#0d47a1; color:white; border-radius:10px; text-decoration:none; transition:0.3s;} 
+    .hero {padding:90px 20px; text-align:center; background:white;}
+    .hero h2 {font-size:42px; margin-bottom:20px; color:#0d47a1;}
+    .hero p {font-size:20px; color:#444; max-width:750px; margin:auto;}
+    .btn-main {margin-top:30px; display:inline-block; padding:16px 35px; font-size:20px; background:#0d47a1; color:white; border-radius:10px; text-decoration:none; transition:0.3s;} 
     .btn-main:hover {background:#08306b;}
 
     /* SECTIONS */
-    .section {padding:80px 20px; max-width:1250px; margin:auto;}
-    .section h2 {text-align:center; font-size:34px; margin-bottom:40px; color:#0d47a1;}
+    .section {padding:80px 20px; max-width:1300px; margin:auto;}
+    .section h2 {text-align:center; font-size:36px; margin-bottom:50px; color:#0d47a1; font-weight:700;}
 
-    /* SERVICE CARDS */
-    .services {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;}
-    .card {background:white; border-radius:15px; padding:20px; border:1px solid #e5e5e5; box-shadow:0 4px 15px rgba(0,0,0,0.07); transition:0.3s;}
-    .card:hover {transform:translateY(-5px);}
-    .card img {width:100%; border-radius:10px; margin-bottom:15px;}
-    .card h3 {color:#08306b; margin-bottom:10px;}
-    .card p {color:#555;}
+    /* CARDS */
+    .services {display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:35px;}
+    .card {background:white; border-radius:15px; padding:25px; border:1px solid #e5e5e5; box-shadow:0 4px 12px rgba(0,0,0,0.07); transition:0.3s;} 
+    .card:hover {transform:translateY(-6px);} 
+    .card img {width:100%; border-radius:12px; margin-bottom:15px;} 
+    .card h3 {color:#08306b; font-size:22px; margin-bottom:10px;}
+    .card p {color:#555; font-size:16px; line-height:1.4;}
+    .card strong {display:block; margin-top:12px; color:#333;}
 
     /* FOOTER */
-    footer {margin-top:40px; padding:30px; text-align:center; background:#fafafa; border-top:1px solid #e5e5e5; color:#555;}
+    footer {margin-top:50px; padding:40px 20px; background:#0d47a1; color:white; text-align:center;}
+    footer p {font-size:16px; margin-bottom:10px;}
+    .footer-links a {color:white; margin:0 10px; text-decoration:none; font-weight:600;}
+    .footer-links a:hover {text-decoration:underline;}
   </style>
 </head>
 <body>
@@ -50,6 +53,12 @@
   </nav>
 </header>
 
+<section class="hero" id="accueil">
+  <h2>Votre Expert en Plomberie, Électricité & Chauffage</h2>
+  <p>Interventions rapides, professionnelles et garanties. SPE FRANCE met à votre service une équipe qualifiée pour tous vos travaux et dépannages.</p>
+  <a href="tel:0780080990" class="btn-main">APPELER MAINTENANT</a>
+</section>
+
 <section class="section" id="services">
   <h2>Nos Services</h2>
   <div class="services">
@@ -57,27 +66,21 @@
     <div class="card">
       <img src="assets/electricien-1536x1536.jpg" alt="Plombier en action">
       <h3>🚿 Plomberie</h3>
-      <p>Fuites, chauffe-eaux, débouchage, canalisations et installations.</p>
+      <p>Fuites, chauffe-eaux, débouchages, canalisations, installation complète et rénovation.</p>
     </div>
 
     <div class="card">
       <img src="assets/climatiste-300x300.png" alt="Électricien professionnel">
       <h3>💡 Électricité</h3>
-      <p>Mise aux normes, tableaux électriques, interventions rapides.</p>
+      <p>Mise aux normes, tableaux électriques, pannes, rénovations et installations sécurisées.</p>
     </div>
 
     <div class="card">
       <img src="assets/ChatGPT-Image-11-nov.-2025-16_18_12-300x300.png" alt="Chauffage installation">
       <h3>🔥 Chauffage & Chaudières</h3>
-      <p>Installation, entretien et dépannage gaz, fioul, électrique.</p>
+      <p>Installation, entretien et dépannage de chaudières gaz, fioul ou électriques.</p>
     </div>
 
-    <!--<div class="card">
-      <img src="https://images.unsplash.com/photo-1621905251918-3e77c3e2bf47?auto=format&fit=crop&w=800&q=80" alt="Technicien climatisation">
-      <h3>❄️ Climatisation & VMC</h3>
-      <p>Installation clim réversible, ventilation, entretien complet.</p>
-    </div>
--->
   </div>
 </section>
 
@@ -98,8 +101,60 @@
   </div>
 </section>
 
+<section class="section stats" id="stats">
+  <h2>Pourquoi Choisir SPE FRANCE ?</h2>
+  <div class="services" style="text-align:center;">
+    <div class="card" style="padding:40px 20px;">
+      <h3 style="font-size:40px; color:#0d47a1;">15+ ans</h3>
+      <p>Expérience dans les métiers du bâtiment</p>
+    </div>
+    <div class="card" style="padding:40px 20px;">
+      <h3 style="font-size:40px; color:#0d47a1;">7j/7</h3>
+      <p>Interventions rapides et urgentes</p>
+    </div>
+    <div class="card" style="padding:40px 20px;">
+      <h3 style="font-size:40px; color:#0d47a1;">98%</h3>
+      <p>Clients satisfaits selon nos retours</p>
+    </div>
+    <div class="card" style="padding:40px 20px;">
+      <h3 style="font-size:40px; color:#0d47a1;">5000+</h3>
+      <p>Interventions réalisées en région toulousaine</p>
+    </div>
+  </div>
+</section>
+
 <footer>
-  © 2025 SPE FRANCE – Powered by MICRODIDACT
+  <div style="max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; color:white; text-align:left;">
+
+    <div>
+      <h3 style="margin-bottom:15px; font-size:20px;">SPE FRANCE</h3>
+      <p>Experts en plomberie, électricité, chauffage et climatisation à Toulouse. Interventions rapides et garanties.</p>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:15px; font-size:20px;">Nos Services</h3>
+      <p>Plomberie</p>
+      <p>Électricité</p>
+      <p>Chauffage & Chaudières</p>
+      <p>Climatisation & Ventilation</p>
+      <p>Dépannage 24h/24</p>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:15px; font-size:20px;">Contact</h3>
+      <p>📍 244 Route de Seysses, Toulouse</p>
+      <p>📞 07 80 08 09 90</p>
+      <p>✉️ Spefrance@contact.fr</p>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:15px; font-size:20px;">Disponibilité</h3>
+      <p>Urgences 24h/24 – 7j/7</p>
+      <p>Interventions rapides Toulouse & alentours</p>
+    </div>
+
+  </div>
+  <p style="text-align:center; margin-top:30px; color:#eaeaea; font-size:14px;">© 2025 SPE FRANCE – Site réalisé par MICRODIDACT</p>
 </footer>
 
 </body>
