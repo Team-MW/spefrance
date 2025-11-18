@@ -3,48 +3,599 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SPE FRANCE – Plomberie, Électricité, Chauffage et Climatisation à Toulouse. Interventions rapides 7j/7." />
+  <meta name="keywords" content="Plombier Toulouse, Electricien Toulouse, Chauffage Toulouse, Climatisation Toulouse, Dépannage 24h/24" />
   <title>SPE FRANCE – Services Professionnels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif;}
-    body {background:#f9f9f9; color:#222;}
+    :root {
+      --primary-blue: #2563eb;
+      --dark-blue: #1e40af;
+      --accent-cyan: #06b6d4;
+      --accent-teal: #14b8a6;
+      --warm-gray: #1f2937;
+      --light-gray: #f8fafc;
+      --white: #ffffff;
+      --shadow-soft: 0 8px 24px rgba(37, 99, 235, 0.08);
+      --shadow-medium: 0 12px 32px rgba(37, 99, 235, 0.12);
+      --shadow-strong: 0 16px 48px rgba(37, 99, 235, 0.16);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--light-gray);
+      color: var(--warm-gray);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
     /* HEADER */
-    header {width:100%; padding:25px 40px; display:flex; justify-content:space-between; align-items:center; background:white; border-bottom:1px solid #e5e5e5; position:sticky; top:0; z-index:99;}
-    header h1 {font-size:28px; color:#0d47a1; font-weight:bold; letter-spacing:1px;}
-    nav a {margin:0 15px; text-decoration:none; color:#333; font-weight:600; transition:0.3s;} 
-    nav a:hover {color:#0d47a1;}
+    header {
+      width: 100%;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+      border-bottom: 3px solid var(--accent-cyan);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-medium);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 12px 40px;
+      box-shadow: var(--shadow-strong);
+    }
+
+    header img {
+      height: 65px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: left 0.3s ease;
+    }
+
+    nav a:hover::before {
+      left: 0;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--white);
+      padding: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* MOBILE NAV */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--white);
+        padding: 20px 0;
+        box-shadow: var(--shadow-strong);
+        border-top: 2px solid var(--accent-cyan);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        color: var(--primary-blue);
+        margin: 8px 0;
+        width: 90%;
+        text-align: center;
+      }
+
+      nav a::before {
+        background: rgba(37, 99, 235, 0.1);
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
 
     /* HERO */
-    .hero {padding:90px 20px; text-align:center; background:white;}
-    .hero h2 {font-size:42px; margin-bottom:20px; color:#0d47a1;}
-    .hero p {font-size:20px; color:#444; max-width:750px; margin:auto;}
-    .btn-main {margin-top:30px; display:inline-block; padding:16px 35px; font-size:20px; background:#0d47a1; color:white; border-radius:10px; text-decoration:none; transition:0.3s;} 
-    .btn-main:hover {background:#08306b;}
+    .hero {
+      padding: 120px 20px 100px;
+      text-align: center;
+      background-image: url('assets/image-spe.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.75) 0%, rgba(30, 64, 175, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 50px 40px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(32px, 5vw, 56px);
+      margin-bottom: 25px;
+      color: var(--white);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 750px;
+      margin: 0 auto 35px;
+      line-height: 1.7;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-main {
+      display: inline-block;
+      padding: 18px 42px;
+      font-size: 18px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-teal) 100%);
+      color: var(--white);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-main::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-main:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(6, 182, 212, 0.5);
+    }
+
+    .btn-main:active {
+      transform: translateY(-2px);
+    }
+
+    .btn-main span {
+      position: relative;
+      z-index: 1;
+    }
 
     /* SECTIONS */
-    .section {padding:80px 20px; max-width:1300px; margin:auto;}
-    .section h2 {text-align:center; font-size:36px; margin-bottom:50px; color:#0d47a1; font-weight:700;}
+    .section {
+      padding: 100px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(32px, 4vw, 48px);
+      margin-bottom: 60px;
+      color: var(--primary-blue);
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
+      border-radius: 2px;
+    }
 
     /* CARDS */
-    .services {display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:35px;}
-    .card {background:white; border-radius:15px; padding:25px; border:1px solid #e5e5e5; box-shadow:0 4px 12px rgba(0,0,0,0.07); transition:0.3s;} 
-    .card:hover {transform:translateY(-6px);} 
-    .card img {width:100%; border-radius:12px; margin-bottom:15px;} 
-    .card h3 {color:#08306b; font-size:22px; margin-bottom:10px;}
-    .card p {color:#555; font-size:16px; line-height:1.4;}
-    .card strong {display:block; margin-top:12px; color:#333;}
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+      margin-top: 60px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-strong);
+      border-color: var(--accent-cyan);
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      transition: transform 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      color: var(--primary-blue);
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* AVIS SECTION */
+    #avis .card {
+      text-align: center;
+      padding: 40px 30px;
+    }
+
+    #avis .card p {
+      font-size: 18px;
+      font-style: italic;
+      color: var(--warm-gray);
+      margin-bottom: 20px;
+      line-height: 1.8;
+      position: relative;
+    }
+
+    #avis .card p::before {
+      content: '"';
+      font-size: 60px;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      color: var(--accent-cyan);
+      opacity: 0.3;
+      font-family: Georgia, serif;
+    }
+
+    #avis .card strong {
+      color: var(--primary-blue);
+      font-size: 16px;
+      display: block;
+      margin-top: 15px;
+    }
+
+    /* CONTACT SECTION */
+    #contact {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+      border-radius: 30px;
+      margin: 60px 20px;
+      padding: 80px 40px;
+    }
+
+    #contact p {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 20px;
+      line-height: 2;
+      color: var(--warm-gray);
+    }
+
+    #contact .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 35px;
+    }
+
+    #contact .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 18px;
+    }
 
     /* FOOTER */
-    footer {margin-top:50px; padding:40px 20px; background:#0d47a1; color:white; text-align:center;}
-    footer p {font-size:16px; margin-bottom:10px;}
-    .footer-links a {color:white; margin:0 10px; text-decoration:none; font-weight:600;}
-    .footer-links a:hover {text-decoration:underline;}
+    footer {
+      margin-top: 80px;
+      padding: 70px 30px 30px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      text-align: left;
+    }
+
+    .footer-grid h3 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .footer-grid p {
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .footer-grid a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-grid a:hover {
+      color: var(--accent-cyan);
+    }
+
+    footer p:last-child {
+      text-align: center;
+      margin-top: 40px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 20px 60px;
+        background-attachment: scroll;
+      }
+
+      .hero-content {
+        padding: 40px 25px;
+      }
+
+      .section {
+        padding: 60px 15px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      #contact {
+        padding: 50px 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+    }
   </style>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('show');
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('nav');
+      const menuBtn = document.querySelector('.menu-btn');
+      if (nav.classList.contains('show') && !nav.contains(event.target) && !menuBtn.contains(event.target)) {
+        nav.classList.remove('show');
+      }
+    });
+  </script>
 </head>
 <body>
 
 <header>
-  <h1>SPE FRANCE</h1>
+  <img src="assets/SPE-FRANCE.png" alt="Logo SPE FRANCE" loading="lazy">
+  <span class="menu-btn" onclick="toggleMenu()">☰</span>
   <nav>
     <a href="#accueil">Accueil</a>
     <a href="#services">Services</a>
@@ -54,9 +605,11 @@
 </header>
 
 <section class="hero" id="accueil">
-  <h2>Votre Expert en Plomberie, Électricité & Chauffage</h2>
-  <p>Interventions rapides, professionnelles et garanties. SPE FRANCE met à votre service une équipe qualifiée pour tous vos travaux et dépannages.</p>
-  <a href="tel:0780080990" class="btn-main">APPELER MAINTENANT</a>
+  <div class="hero-content">
+    <h2>Votre Expert en Plomberie, Électricité & Chauffage</h2>
+    <p>Interventions rapides, professionnelles et garanties. SPE FRANCE met à votre service une équipe qualifiée pour tous vos travaux et dépannages.</p>
+    <a href="tel:0780080990" class="btn-main"><span>📞 APPELER MAINTENANT</span></a>
+  </div>
 </section>
 
 <section class="section" id="services">
@@ -64,19 +617,19 @@
   <div class="services">
 
     <div class="card">
-      <img src="assets/electricien-1536x1536.jpg" alt="Plombier en action">
+      <img src="assets/electricien-1536x1536.jpg" alt="Plombier Toulouse dépannage rapide" loading="lazy">
       <h3>🚿 Plomberie</h3>
       <p>Fuites, chauffe-eaux, débouchages, canalisations, installation complète et rénovation.</p>
     </div>
 
     <div class="card">
-      <img src="assets/climatiste-300x300.png" alt="Électricien professionnel">
+      <img src="assets/climatiste-300x300.png" alt="Électricien Toulouse mise aux normes" loading="lazy">
       <h3>💡 Électricité</h3>
       <p>Mise aux normes, tableaux électriques, pannes, rénovations et installations sécurisées.</p>
     </div>
 
     <div class="card">
-      <img src="assets/ChatGPT-Image-11-nov.-2025-16_18_12-300x300.png" alt="Chauffage installation">
+      <img src="assets/ChatGPT-Image-11-nov.-2025-16_18_12-300x300.png" alt="Installation chauffage Toulouse" loading="lazy">
       <h3>🔥 Chauffage & Chaudières</h3>
       <p>Installation, entretien et dépannage de chaudières gaz, fioul ou électriques.</p>
     </div>
@@ -95,36 +648,27 @@
 
 <section class="section" id="contact">
   <h2>Contact</h2>
-  <p style="text-align:center; margin-top:20px; font-size:18px;">Adresse : 244 Route de Seysses<br>Tél : 07 80 08 09 90<br>Email : Spefrance@contact.fr</p>
-  <div style="text-align:center; margin-top:25px;">
-    <a href="tel:0780080990" class="btn-main">APPELER MAINTENANT</a>
+  <div class="contact-info">
+    <div class="contact-item">
+      <span>📍</span>
+      <span><strong>244 Route de Seysses, Toulouse</strong></span>
+    </div>
+    <div class="contact-item">
+      <span>📞</span>
+      <span><strong>07 80 08 09 90</strong></span>
+    </div>
+    <div class="contact-item">
+      <span>✉️</span>
+      <span><strong>Spefrance@contact.fr</strong></span>
+    </div>
   </div>
-</section>
-
-<section class="section stats" id="stats">
-  <h2>Pourquoi Choisir SPE FRANCE ?</h2>
-  <div class="services" style="text-align:center;">
-    <div class="card" style="padding:40px 20px;">
-      <h3 style="font-size:40px; color:#0d47a1;">15+ ans</h3>
-      <p>Expérience dans les métiers du bâtiment</p>
-    </div>
-    <div class="card" style="padding:40px 20px;">
-      <h3 style="font-size:40px; color:#0d47a1;">7j/7</h3>
-      <p>Interventions rapides et urgentes</p>
-    </div>
-    <div class="card" style="padding:40px 20px;">
-      <h3 style="font-size:40px; color:#0d47a1;">98%</h3>
-      <p>Clients satisfaits selon nos retours</p>
-    </div>
-    <div class="card" style="padding:40px 20px;">
-      <h3 style="font-size:40px; color:#0d47a1;">5000+</h3>
-      <p>Interventions réalisées en région toulousaine</p>
-    </div>
+  <div style="text-align:center; margin-top:30px;">
+    <a href="tel:0780080990" class="btn-main"><span>📞 APPELER MAINTENANT</span></a>
   </div>
 </section>
 
 <footer>
-  <div style="max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; color:white; text-align:left;">
+  <div class="footer-grid">
 
     <div>
       <h3 style="margin-bottom:15px; font-size:20px;">SPE FRANCE</h3>
@@ -154,7 +698,7 @@
     </div>
 
   </div>
-  <p style="text-align:center; margin-top:30px; color:#eaeaea; font-size:14px;">© 2025 SPE FRANCE – Site réalisé par MICRODIDACT</p>
+  <p style="text-align:center; margin-top:30px; color:#eaeaea; font-size:14px;">© 2025 SPE FRANCE – Site réalisé par MICRODIDAC</p>
 </footer>
 
 </body>
