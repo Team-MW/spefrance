@@ -7,10 +7,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+    // Gérer le sous-menu Services en mobile
+    const servicesItem = navMenu.querySelector('.nav-item-has-children');
+    if (servicesItem) {
+      const servicesLink = servicesItem.querySelector('> a');
+      servicesLink.addEventListener('click', function(e) {
+        if (window.innerWidth <= 800) {
+          e.preventDefault();
+          servicesItem.classList.toggle('active');
+        }
+      });
+    }
+    
+    // Fermer le menu quand on clique sur un lien (sauf Services)
+    const navLinks = navMenu.querySelectorAll('a:not(.nav-item-has-children > a)');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+    
+    // Fermer le menu quand on clique en dehors
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = navMenu.contains(event.target);
+      const isClickOnToggle = menuToggle.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+  });
+</script>
 <header>
   <div class="container navbar">
-    <div class="logo">SPE FRANCE <span>Artisans</span></div>
-    <nav>
+    <div class="logo">
+      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
       <ul>
         <li><a href="index.html" class="active">Accueil</a></li>
         <li><a href="apropos.html">À propos</a></li>
@@ -21,7 +72,7 @@
             <li><a href="electricite.html">Électricité</a></li>
           </ul>
         </li>
-        <li><a href="zone-intervention.html">Zone d’intervention</a></li>
+        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -38,9 +89,7 @@
           SPE FRANCE intervient à <strong>Toulouse, Blagnac, Colomiers, Tournefeuille, Cugnaux, Muret</strong> et dans toute la métropole.
           Intervention rapide, travail soigné et respect du devis.
         </p>
-        <p>
-          Une urgence ? <strong>Appelez-nous dès maintenant au 07 80 08 09 90</strong> pour un dépannage en toute sécurité.
-        </p>
+
         <div class="hero-buttons">
           <a href="tel:0780080990" class="btn btn-primary">📞 Urgence 24h/24</a>
           <a href="contact.html" class="btn btn-outline">Demander un devis gratuit</a>
@@ -161,16 +210,16 @@
       </p>
       <div class="image-grid">
         <figure class="image-card">
-          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="Installation plomberie moderne">
-          <figcaption>Remplacement complet d’une salle de bain à Blagnac</figcaption>
+          <img src="assets/istockphoto-482115611-612x612.jpg" alt="Artisan plombier SPE FRANCE à l’œuvre">
+          <figcaption>Création complète d’une salle d’eau à Blagnac</figcaption>
         </figure>
         <figure class="image-card">
-          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="Tableau électrique neuf">
-          <figcaption>Mise aux normes d’un tableau électrique à Toulouse</figcaption>
+          <img src="assets/Electricien-freepick-1920x1280.jpg" alt="Électricien SPE FRANCE intervenant sur un tableau">
+          <figcaption>Mise en sécurité d’une installation électrique à Toulouse</figcaption>
         </figure>
         <figure class="image-card">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Technicien intervenant">
-          <figcaption>Intervention express sur réseau de chauffage à Colomiers</figcaption>
+          <img src="assets/1514199-corporation-maitres-mecaniciens-tuyauterie-quebec.jpg" alt="Technicien SPE FRANCE pour le chauffage et la clim">
+          <figcaption>Dépannage chauffage et climatisation à Colomiers</figcaption>
         </figure>
       </div>
     </div>
