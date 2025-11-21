@@ -182,10 +182,8 @@ function initExpertiseCards() {
     });
 }
 
-// Hero Stats Counter Animation
+// Stats Counter Animation (for both .stat-value and .stat-number)
 function initHeroStats() {
-    const statValues = document.querySelectorAll('.stat-value');
-    
     const animateValue = (element, start, end, duration) => {
         const target = parseInt(element.dataset.target);
         let startTimestamp = null;
@@ -197,7 +195,7 @@ function initHeroStats() {
             // Format the number with appropriate suffix
             let suffix = '';
             if (target === 1000) suffix = '+';
-            else if (target === 100) suffix = '%';
+            else if (target === 100 || target === 98) suffix = '%';
             else if (target === 24) suffix = 'h';
             else if (target === 7) suffix = 'j';
             
@@ -220,9 +218,17 @@ function initHeroStats() {
                 statsObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
     
+    // Animate hero stats (.stat-value)
+    const statValues = document.querySelectorAll('.stat-value');
     statValues.forEach(stat => {
+        statsObserver.observe(stat);
+    });
+    
+    // Animate testimonials stats (.stat-number)
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    statNumbers.forEach(stat => {
         statsObserver.observe(stat);
     });
 }
