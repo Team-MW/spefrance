@@ -1,171 +1,202 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact – SPE FRANCE</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – SPE FRANCE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    menuToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navMenu.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
-    
-    // Gérer le sous-menu Services en mobile
-    const servicesItem = navMenu.querySelector('.nav-item-has-children');
-    if (servicesItem) {
-      const servicesLink = servicesItem.querySelector('> a');
-      servicesLink.addEventListener('click', function(e) {
-        if (window.innerWidth <= 800) {
-          e.preventDefault();
-          servicesItem.classList.toggle('active');
-        }
-      });
-    }
-    
-    // Fermer le menu quand on clique sur un lien (sauf Services)
-    const navLinks = navMenu.querySelectorAll('a:not(.nav-item-has-children > a)');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      });
-    });
-    
-    // Fermer le menu quand on clique en dehors
-    document.addEventListener('click', function(event) {
-      const isClickInsideNav = navMenu.contains(event.target);
-      const isClickOnToggle = menuToggle.contains(event.target);
-      
-      if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      }
-    });
-  });
-</script>
-<header>
-  <div class="container navbar">
-    <div class="logo">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="logo-img">
-    </div>
-    <button class="menu-toggle" aria-label="Menu" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav-menu" id="navMenu">
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li class="nav-item-has-children">
-          <a href="services.html">Services</a>
-          <ul>
-            <li><a href="plomberie.html">Plomberie</a></li>
-            <li><a href="electricite.html">Électricité</a></li>
-          </ul>
-        </li>
-        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">SPE <span>FRANCE</span></div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li class="nav-item-has-children">
+                            <a href="services.html">Services</a>
+                            <ul class="sub-menu">
+                                <li><a href="plomberie.html">Plomberie</a></li>
+                                <li><a href="electricite.html">Électricité</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                    <div class="nav-contact">
+                        <a href="tel:0780080990" class="phone-link">07 80 08 09 90</a>
+                        <a href="contact.html" class="btn-primary">Urgence 24h/24</a>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<div class="page-header">
-  <div class="container">
-    <div class="breadcrumb">Accueil &gt; Contact</div>
-    <h1 class="section-title">Contact & devis</h1>
-    <p class="section-subtitle">
-      Besoin d’un devis ou d’une intervention urgente ?  
-      Contactez nos techniciens dès maintenant.
-    </p>
-  </div>
-</div>
-
-<main>
-  <section class="main-content">
-    <div class="container grid-2">
-      <div>
-        <h2>Contactez-nous directement</h2>
-        <p style="margin:10px 0 14px;">
-          Nous privilégions le contact humain. Pour toute demande d’intervention ou de devis,
-          utilisez l’un des moyens ci-dessous et nous revenons vers vous rapidement.
-        </p>
-        <div class="contact-direct">
-          <div class="contact-item">
-            <h3>Par téléphone</h3>
-            <p>Urgence, panne ou simple question : <a href="tel:0780080990">07 80 08 09 90</a></p>
-          </div>
-          <div class="contact-item">
-            <h3>Par e-mail</h3>
-            <p>Envoyez-nous votre demande détaillée à <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
-          </div>
-          <div class="contact-item">
-            <h3>Sur place</h3>
-            <p>244 Route de Seysses – 31100 Toulouse. Merci de prendre rendez-vous avant votre passage.</p>
-          </div>
-          <div class="contact-item">
-            <h3>Disponibilités</h3>
-            <p>Dépannage 7j/7 – 24h/24. Devis et renseignements tous les jours.</p>
-          </div>
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">Accueil &gt; Contact</div>
+            <h1 class="section-title" style="color: white; margin-bottom: 0.5rem;">Contact & devis</h1>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">
+                Besoin d'un devis ou d'une intervention urgente ? Contactez nos techniciens dès maintenant.
+            </p>
         </div>
-      </div>
+    </div>
 
-      <aside class="info-box">
-        <h3>Urgence immédiate ?</h3>
-        <p>
-          Pour un dépannage urgent (fuite d’eau, coupure de courant, panne de chauffage ou climatisation) 
-          le plus rapide est de nous appeler directement.
-        </p>
-        <p style="margin-top:8px;">
-          <strong>Téléphone :</strong><br>
-          <a href="tel:0780080990">07 80 08 09 90</a>
-        </p>
-        <p style="margin-top:8px;">
-          <strong>Email :</strong><br>
-          <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>
-        </p>
-        <p style="margin-top:8px;">
-          <strong>Adresse :</strong><br>
-          244 Route de Seysses<br>
-          Toulouse
-        </p>
-        <p style="margin-top:8px;">
-          <strong>Horaires :</strong><br>
-          Urgences : 7j/7 – 24h/24<br>
-          Devis : tous les jours.
-        </p>
-      </aside>
-    </div>
-  </section>
-</main>
+    <main>
+        <section class="main-content">
+            <div class="container grid-2">
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Contactez-nous directement</h2>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-light);">
+                        Nous privilégions le contact humain. Pour toute demande d'intervention ou de devis,
+                        utilisez l'un des moyens ci-dessous et nous revenons vers vous rapidement.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow);">
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Par téléphone</h3>
+                            <p style="color: var(--text-light); margin: 0;">
+                                Urgence, panne ou simple question : <a href="tel:0780080990" style="color: var(--secondary-color); font-weight: 600;">07 80 08 09 90</a>
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow);">
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Par e-mail</h3>
+                            <p style="color: var(--text-light); margin: 0;">
+                                Envoyez-nous votre demande détaillée à <a href="mailto:spefrance@contact.fr" style="color: var(--secondary-color);">spefrance@contact.fr</a>
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow);">
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Sur place</h3>
+                            <p style="color: var(--text-light); margin: 0;">
+                                244 Route de Seysses – 31100 Toulouse. Merci de prendre rendez-vous avant votre passage.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: var(--shadow);">
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Disponibilités</h3>
+                            <p style="color: var(--text-light); margin: 0;">
+                                Dépannage 7j/7 – 24h/24. Devis et renseignements tous les jours.
+                            </p>
+                        </div>
+                    </div>
 
-<footer>
-  <div class="container footer-flex">
-    <div class="footer-brand">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="footer-logo">
-    </div>
-    <div>
-      SPE FRANCE – 244 Route de Seysses – Toulouse<br>
-      Tél : 07 80 08 09 90 | Mail : <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>
-    </div>
-    <div>
-      Une urgence ? Appelez maintenant : 07 80 08 09 90
-    </div>
-    <div class="footer-links">
-      <a href="mentions-legales.html">Mentions légales</a>
-      <span>•</span>
-      Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a>
-    </div>
-  </div>
-</footer>
+                    <h2 style="color: var(--primary-color); margin: 2rem 0 1rem;">Contactez-nous</h2>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-light);">
+                        Pour toute demande d'intervention ou de devis, contactez-nous directement par téléphone ou email.
+                    </p>
+                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: var(--shadow); text-align: center;">
+                        <a href="tel:0780080990" class="btn-hero-primary" style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M18.3333 14.075V16.575C18.3333 17.1417 18.1083 17.6583 17.7167 18.05C17.325 18.4417 16.8083 18.6667 16.2417 18.6667C7.39167 18.6667 1.33333 12.6083 1.33333 3.75833C1.33333 3.19167 1.55833 2.675 1.95 2.28333C2.34167 1.89167 2.85833 1.66667 3.425 1.66667H5.925C6.49167 1.66667 7.00833 1.89167 7.4 2.28333C7.79167 2.675 8.01667 3.19167 8.01667 3.75833C8.01667 4.89167 8.24167 5.99167 8.65833 7.00833C8.84167 7.44167 8.83333 7.93333 8.64167 8.35833L7.13333 11.3583C8.80833 13.8083 11.1917 16.1917 13.6417 17.8667L16.6417 16.3583C17.0667 16.1667 17.5583 16.1583 17.9917 16.3417C19.0083 16.7583 20.1083 16.9833 21.2417 16.9833C21.8083 16.9833 22.325 17.2083 22.7167 17.6C23.1083 17.9917 23.3333 18.5083 23.3333 19.075V21.575Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>07 80 08 09 90</span>
+                        </a>
+                        <p style="margin-top: 1rem; color: var(--text-light);">
+                            Ou envoyez-nous un email à <a href="mailto:spefrance@contact.fr" style="color: var(--secondary-color); font-weight: 600;">spefrance@contact.fr</a>
+                        </p>
+                    </div>
+                </div>
+
+                <aside class="info-box">
+                    <h3>Urgence immédiate ?</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.6;">
+                        Pour un dépannage urgent (fuite d'eau, coupure de courant, panne de chauffage ou climatisation) 
+                        le plus rapide est de nous appeler directement.
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Téléphone :</strong><br>
+                        <a href="tel:0780080990" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary-color);">07 80 08 09 90</a>
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Email :</strong><br>
+                        <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Adresse :</strong><br>
+                        244 Route de Seysses<br>
+                        31100 Toulouse
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Horaires :</strong><br>
+                        Urgences : 7j/7 – 24h/24<br>
+                        Devis : tous les jours.
+                    </p>
+                    <div class="map-container" style="margin: 1.5rem 0; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5!2d1.4088894!3d43.6046522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ab%3A0x406f69c2f3ff500!2s244%20Route%20de%20Seysses%2C%2031100%20Toulouse!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr&q=244+Route+de+Seysses,+31100+Toulouse,+France"
+                            width="100%" 
+                            height="250" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Localisation SPE FRANCE - 244 Route de Seysses, Toulouse">
+                        </iframe>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SPE FRANCE</h3>
+                    <p>Votre partenaire de confiance pour tous vos travaux de plomberie, électricité, chauffage et climatisation à Toulouse et son agglomération.</p>
+                    <p><strong>Adresse :</strong> 244 Route de Seysses – 31100 Toulouse</p>
+                    <p><strong>Tél :</strong> <a href="tel:0780080990">07 80 08 09 90</a></p>
+                    <p><strong>Mail :</strong> <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li>Plomberie</li>
+                        <li>Électricité</li>
+                        <li>Chauffage & Chaudières</li>
+                        <li>Climatisation & Ventilation</li>
+                        <li>Dépannage 24h/24</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Urgence ?</h4>
+                    <p><strong>Dépannage 7j/7 – 24h/24</strong></p>
+                    <p><a href="tel:0780080990" style="font-size: 1.2rem; font-weight: 700;">07 80 08 09 90</a></p>
+                    <a href="contact.html" class="btn-primary">Demander un devis</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SPE FRANCE. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <span>Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+

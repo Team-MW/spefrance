@@ -1,190 +1,187 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Zone d’intervention – SPE FRANCE</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone d'intervention – SPE FRANCE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    menuToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navMenu.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
-    
-    // Gérer le sous-menu Services en mobile
-    const servicesItem = navMenu.querySelector('.nav-item-has-children');
-    if (servicesItem) {
-      const servicesLink = servicesItem.querySelector('> a');
-      servicesLink.addEventListener('click', function(e) {
-        if (window.innerWidth <= 800) {
-          e.preventDefault();
-          servicesItem.classList.toggle('active');
-        }
-      });
-    }
-    
-    // Fermer le menu quand on clique sur un lien (sauf Services)
-    const navLinks = navMenu.querySelectorAll('a:not(.nav-item-has-children > a)');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      });
-    });
-    
-    // Fermer le menu quand on clique en dehors
-    document.addEventListener('click', function(event) {
-      const isClickInsideNav = navMenu.contains(event.target);
-      const isClickOnToggle = menuToggle.contains(event.target);
-      
-      if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      }
-    });
-  });
-</script>
-<header>
-  <div class="container navbar">
-    <div class="logo">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="logo-img">
-    </div>
-    <button class="menu-toggle" aria-label="Menu" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav-menu" id="navMenu">
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li class="nav-item-has-children">
-          <a href="services.html">Services</a>
-          <ul>
-            <li><a href="plomberie.html">Plomberie</a></li>
-            <li><a href="electricite.html">Électricité</a></li>
-          </ul>
-        </li>
-        <li><a href="zone-intervention.html" class="active">Zone d'intervention</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">SPE <span>FRANCE</span></div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li class="nav-item-has-children">
+                            <a href="services.html">Services</a>
+                            <ul class="sub-menu">
+                                <li><a href="plomberie.html">Plomberie</a></li>
+                                <li><a href="electricite.html">Électricité</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="zone-intervention.html" class="active">Zone d'intervention</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-contact">
+                        <a href="tel:0780080990" class="phone-link">07 80 08 09 90</a>
+                        <a href="contact.html" class="btn-primary">Urgence 24h/24</a>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<div class="page-header">
-  <div class="container">
-    <div class="breadcrumb">Accueil &gt; Zone d’intervention</div>
-    <h1 class="section-title">Nos zones d’intervention</h1>
-    <p class="section-subtitle">
-      SPE FRANCE intervient à Toulouse et dans toutes les communes de son agglomération pour vos urgences
-      et vos travaux programmés.
-    </p>
-  </div>
-</div>
-
-<main>
-  <section class="main-content">
-    <div class="container grid-2">
-      <div>
-        <h2>Villes principales couvertes</h2>
-        <table class="zones-table">
-          <thead>
-            <tr>
-              <th>Ville</th>
-              <th>Type d’intervention</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Toulouse</td>
-              <td>Plomberie, Électricité, Chauffage, Climatisation, Urgences 24h/24</td>
-            </tr>
-            <tr>
-              <td>Blagnac</td>
-              <td>Dépannage, travaux et entretien</td>
-            </tr>
-            <tr>
-              <td>Colomiers</td>
-              <td>Installation, rénovation, climatisation</td>
-            </tr>
-            <tr>
-              <td>Tournefeuille</td>
-              <td>Plomberie & électricité, urgences</td>
-            </tr>
-            <tr>
-              <td>Cugnaux</td>
-              <td>Dépannage plomberie & chauffage</td>
-            </tr>
-            <tr>
-              <td>Muret</td>
-              <td>Interventions sur rendez-vous et urgences</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 style="margin:18px 0 8px;">Autres communes</h3>
-        <p style="margin-bottom:10px;">
-          Nous pouvons également intervenir dans d’autres communes proches de Toulouse.
-          N’hésitez pas à nous contacter pour vérifier la possibilité d’intervention.
-        </p>
-        <p><strong>Un doute ? Appelez-nous au 07 80 08 09 90.</strong></p>
-      </div>
-
-      <aside class="info-box">
-        <h3>Adresse du siège</h3>
-        <p>
-          <strong>SPE FRANCE</strong><br>
-          244 Route de Seysses<br>
-          Toulouse
-        </p>
-        <div class="map-container" style="margin: 15px 0;">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5!2d1.4088894!3d43.6046522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ab%3A0x406f69c2f3ff500!2s244%20Route%20de%20Seysses%2C%2031100%20Toulouse!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr&q=244+Route+de+Seysses,+31100+Toulouse,+France"
-            width="100%" 
-            height="250" 
-            style="border:0; border-radius: 12px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Localisation SPE FRANCE - 244 Route de Seysses, Toulouse">
-          </iframe>
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">Accueil &gt; Zone d'intervention</div>
+            <h1 class="section-title" style="color: white; margin-bottom: 0.5rem;">Nos zones d'intervention</h1>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">
+                SPE FRANCE intervient à Toulouse et dans toutes les communes de son agglomération pour vos urgences et vos travaux programmés.
+            </p>
         </div>
-        <p style="margin-top:8px;">
-          Notre position à Toulouse nous permet d'intervenir rapidement dans toute l'agglomération, 
-          en particulier au sud et à l'ouest de la ville.
-        </p>
-        <a href="contact.html" class="btn btn-primary" style="margin-top:10px; display:inline-block;">Nous contacter</a>
-      </aside>
     </div>
-  </section>
-</main>
 
-<footer>
-  <div class="container footer-flex">
-    <div class="footer-brand">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="footer-logo">
-    </div>
-    <div>
-      SPE FRANCE – 244 Route de Seysses – Toulouse<br>
-      Tél : 07 80 08 09 90 | Mail : <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>
-    </div>
-    <div>
-      Intervention Toulouse & agglomération
-    </div>
-    <div class="footer-links">
-      <a href="mentions-legales.html">Mentions légales</a>
-      <span>•</span>
-      Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a>
-    </div>
-  </div>
-</footer>
+    <main>
+        <section class="main-content">
+            <div class="container grid-2">
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Villes principales couvertes</h2>
+                    <table class="zones-table">
+                        <thead>
+                            <tr>
+                                <th>Ville</th>
+                                <th>Type d'intervention</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Toulouse</strong></td>
+                                <td>Plomberie, Électricité, Chauffage, Climatisation, Urgences 24h/24</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Blagnac</strong></td>
+                                <td>Dépannage, travaux et entretien</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Colomiers</strong></td>
+                                <td>Installation, rénovation, climatisation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tournefeuille</strong></td>
+                                <td>Plomberie & électricité, urgences</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cugnaux</strong></td>
+                                <td>Dépannage plomberie & chauffage</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Muret</strong></td>
+                                <td>Interventions sur rendez-vous et urgences</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem;">Autres communes</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.8; color: var(--text-light);">
+                        Nous pouvons également intervenir dans d'autres communes proches de Toulouse.
+                        N'hésitez pas à nous contacter pour vérifier la possibilité d'intervention.
+                    </p>
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-color);">
+                        <strong>Un doute ? Appelez-nous au 07 80 08 09 90.</strong>
+                    </p>
+                </div>
+
+                <aside class="info-box">
+                    <h3>Adresse du siège</h3>
+                    <p>
+                        <strong>SPE FRANCE</strong><br>
+                        244 Route de Seysses<br>
+                        31100 Toulouse
+                    </p>
+                    <div class="map-container" style="margin: 1.5rem 0; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5!2d1.4088894!3d43.6046522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ab%3A0x406f69c2f3ff500!2s244%20Route%20de%20Seysses%2C%2031100%20Toulouse!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr&q=244+Route+de+Seysses,+31100+Toulouse,+France"
+                            width="100%" 
+                            height="250" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Localisation SPE FRANCE - 244 Route de Seysses, Toulouse">
+                        </iframe>
+                    </div>
+                    <p style="margin-top: 1rem; color: var(--text-light); line-height: 1.6;">
+                        Notre position à Toulouse nous permet d'intervenir rapidement dans toute l'agglomération, 
+                        en particulier au sud et à l'ouest de la ville.
+                    </p>
+                    <a href="contact.html" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Nous contacter</a>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SPE FRANCE</h3>
+                    <p>Votre partenaire de confiance pour tous vos travaux de plomberie, électricité, chauffage et climatisation à Toulouse et son agglomération.</p>
+                    <p><strong>Adresse :</strong> 244 Route de Seysses – 31100 Toulouse</p>
+                    <p><strong>Tél :</strong> <a href="tel:0780080990">07 80 08 09 90</a></p>
+                    <p><strong>Mail :</strong> <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li>Plomberie</li>
+                        <li>Électricité</li>
+                        <li>Chauffage & Chaudières</li>
+                        <li>Climatisation & Ventilation</li>
+                        <li>Dépannage 24h/24</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Urgence ?</h4>
+                    <p><strong>Dépannage 7j/7 – 24h/24</strong></p>
+                    <p><a href="tel:0780080990" style="font-size: 1.2rem; font-weight: 700;">07 80 08 09 90</a></p>
+                    <a href="contact.html" class="btn-primary">Demander un devis</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SPE FRANCE. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <span>Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+

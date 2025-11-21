@@ -1,160 +1,202 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Nos services – SPE FRANCE</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos services – SPE FRANCE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    menuToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navMenu.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
-    
-    // Gérer le sous-menu Services en mobile
-    const servicesItem = navMenu.querySelector('.nav-item-has-children');
-    if (servicesItem) {
-      const servicesLink = servicesItem.querySelector('> a');
-      servicesLink.addEventListener('click', function(e) {
-        if (window.innerWidth <= 800) {
-          e.preventDefault();
-          servicesItem.classList.toggle('active');
-        }
-      });
-    }
-    
-    // Fermer le menu quand on clique sur un lien (sauf Services)
-    const navLinks = navMenu.querySelectorAll('a:not(.nav-item-has-children > a)');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      });
-    });
-    
-    // Fermer le menu quand on clique en dehors
-    document.addEventListener('click', function(event) {
-      const isClickInsideNav = navMenu.contains(event.target);
-      const isClickOnToggle = menuToggle.contains(event.target);
-      
-      if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      }
-    });
-  });
-</script>
-<header>
-  <div class="container navbar">
-    <div class="logo">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="logo-img">
-    </div>
-    <button class="menu-toggle" aria-label="Menu" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav-menu" id="navMenu">
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li class="nav-item-has-children">
-          <a href="services.html" class="active">Services</a>
-          <ul>
-            <li><a href="plomberie.html">Plomberie</a></li>
-            <li><a href="electricite.html">Électricité</a></li>
-          </ul>
-        </li>
-        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">SPE <span>FRANCE</span></div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li class="nav-item-has-children">
+                            <a href="services.html" class="active">Services</a>
+                            <ul class="sub-menu">
+                                <li><a href="plomberie.html">Plomberie</a></li>
+                                <li><a href="electricite.html">Électricité</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-contact">
+                        <a href="tel:0780080990" class="phone-link">07 80 08 09 90</a>
+                        <a href="contact.html" class="btn-primary">Urgence 24h/24</a>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<div class="page-header">
-  <div class="container">
-    <div class="breadcrumb">Accueil &gt; Services</div>
-    <h1 class="section-title">Nos services</h1>
-    <p class="section-subtitle">
-      SPE FRANCE vous accompagne pour tous vos besoins en plomberie, électricité, chauffage et climatisation.
-    </p>
-  </div>
-</div>
-
-<main>
-  <section class="main-content">
-    <div class="container">
-      <div class="cards">
-        <div class="card">
-          <h3>Plomberie</h3>
-          <p>
-            Installation, réparation et dépannage de vos équipements sanitaires : fuites, robinetterie, chauffe-eau,
-            WC, évacuations bouchées, etc.
-          </p>
-          <a href="plomberie.html" class="btn btn-outline" style="margin-top:10px;">Détails du service</a>
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">Accueil &gt; Services</div>
+            <h1 class="section-title" style="color: white; margin-bottom: 0.5rem;">Nos services</h1>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">
+                SPE FRANCE vous accompagne pour tous vos besoins en plomberie, électricité, chauffage et climatisation.
+            </p>
         </div>
+    </div>
 
-        <div class="card">
-          <h3>Électricité</h3>
-          <p>
-            Travaux d’électricité générale, remise aux normes, recherche de panne et sécurisation de votre installation.
-          </p>
-          <a href="electricite.html" class="btn btn-outline" style="margin-top:10px;">Détails du service</a>
+    <main>
+        <section class="main-content">
+            <div class="container">
+                <div class="expertises-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-card-header">
+                            <div class="expertise-icon">🚿</div>
+                            <h3>PLOMBERIE</h3>
+                        </div>
+                        <p class="expertise-summary">Installation, réparation et dépannage de vos équipements sanitaires</p>
+                        <div class="expertise-details" style="max-height: 1000px; padding: 1.5rem 2rem 2rem;">
+                            <ul class="sub-services-list">
+                                <li><span class="service-icon">✓</span> Recherche et réparation de fuites</li>
+                                <li><span class="service-icon">✓</span> Remplacement de robinetterie et sanitaires</li>
+                                <li><span class="service-icon">✓</span> Dépannage chauffe-eau et ballon</li>
+                                <li><span class="service-icon">✓</span> Création et modification de réseaux</li>
+                                <li><span class="service-icon">✓</span> Salles de bains et cuisine</li>
+                                <li><span class="service-icon">✓</span> Rénovation de sanitaires</li>
+                            </ul>
+                            <a href="plomberie.html" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Détails du service</a>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card">
+                        <div class="expertise-card-header">
+                            <div class="expertise-icon">⚡</div>
+                            <h3>ÉLECTRICITÉ</h3>
+                        </div>
+                        <p class="expertise-summary">Travaux d'électricité générale, installation de tableaux, mise aux normes</p>
+                        <div class="expertise-details" style="max-height: 1000px; padding: 1.5rem 2rem 2rem;">
+                            <ul class="sub-services-list">
+                                <li><span class="service-icon">✓</span> Dépannage de pannes électriques</li>
+                                <li><span class="service-icon">✓</span> Mise en sécurité et conformité</li>
+                                <li><span class="service-icon">✓</span> Installation de prise, éclairage, disjoncteur</li>
+                                <li><span class="service-icon">✓</span> Mise à niveau d'installations</li>
+                                <li><span class="service-icon">✓</span> Création de circuits</li>
+                                <li><span class="service-icon">✓</span> Éclairage et prises</li>
+                            </ul>
+                            <a href="electricite.html" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Détails du service</a>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card">
+                        <div class="expertise-card-header">
+                            <div class="expertise-icon">🔥</div>
+                            <h3>CHAUFFAGE & CHAUDIÈRES</h3>
+                        </div>
+                        <p class="expertise-summary">Installation, entretien et réparation de chaudières gaz, électriques et fioul</p>
+                        <div class="expertise-details" style="max-height: 1000px; padding: 1.5rem 2rem 2rem;">
+                            <ul class="sub-services-list">
+                                <li><span class="service-icon">✓</span> Entretien annuel de chaudière</li>
+                                <li><span class="service-icon">✓</span> Dépannage rapide en hiver</li>
+                                <li><span class="service-icon">✓</span> Conseil pour optimiser votre chauffage</li>
+                                <li><span class="service-icon">✓</span> Installation de chaudières</li>
+                                <li><span class="service-icon">✓</span> Réparation et maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card">
+                        <div class="expertise-card-header">
+                            <div class="expertise-icon">❄️</div>
+                            <h3>CLIMATISATION & VENTILATION</h3>
+                        </div>
+                        <p class="expertise-summary">Pose, réparation et maintenance de systèmes de climatisation réversible et VMC</p>
+                        <div class="expertise-details" style="max-height: 1000px; padding: 1.5rem 2rem 2rem;">
+                            <ul class="sub-services-list">
+                                <li><span class="service-icon">✓</span> Installation de climatisation réversible</li>
+                                <li><span class="service-icon">✓</span> Contrats d'entretien</li>
+                                <li><span class="service-icon">✓</span> VMC simple et double flux</li>
+                                <li><span class="service-icon">✓</span> Réparation et dépannage</li>
+                                <li><span class="service-icon">✓</span> Maintenance préventive</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card">
+                        <div class="expertise-card-header">
+                            <div class="expertise-icon">🚨</div>
+                            <h3>DÉPANNAGE & URGENCES 24h/24</h3>
+                        </div>
+                        <p class="expertise-summary">Intervention rapide jour et nuit pour fuite d'eau, coupure de courant, problème de chauffage ou climatisation</p>
+                        <div class="expertise-details" style="max-height: 1000px; padding: 1.5rem 2rem 2rem;">
+                            <p style="color: var(--text-light); margin-bottom: 1rem;">
+                                <strong>Une urgence ? Appelez le 07 80 08 09 90.</strong>
+                            </p>
+                            <a href="tel:0780080990" class="btn-primary" style="display: inline-block;">📞 Urgence immédiate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SPE FRANCE</h3>
+                    <p>Votre partenaire de confiance pour tous vos travaux de plomberie, électricité, chauffage et climatisation à Toulouse et son agglomération.</p>
+                    <p><strong>Adresse :</strong> 244 Route de Seysses – 31100 Toulouse</p>
+                    <p><strong>Tél :</strong> <a href="tel:0780080990">07 80 08 09 90</a></p>
+                    <p><strong>Mail :</strong> <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li>Plomberie</li>
+                        <li>Électricité</li>
+                        <li>Chauffage & Chaudières</li>
+                        <li>Climatisation & Ventilation</li>
+                        <li>Dépannage 24h/24</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Urgence ?</h4>
+                    <p><strong>Dépannage 7j/7 – 24h/24</strong></p>
+                    <p><a href="tel:0780080990" style="font-size: 1.2rem; font-weight: 700;">07 80 08 09 90</a></p>
+                    <a href="contact.html" class="btn-primary">Demander un devis</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SPE FRANCE. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <span>Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a></span>
+                </div>
+            </div>
         </div>
+    </footer>
 
-        <div class="card">
-          <h3>Chauffage & Chaudières</h3>
-          <p>
-            Entretien, dépannage et installation de chaudières gaz, électriques ou fioul.
-            Conseils pour améliorer vos performances énergétiques.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Climatisation & Ventilation</h3>
-          <p>
-            Installation et maintenance de climatisation réversible et VMC pour un confort optimal toute l’année.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Dépannage & Urgences 24h/24</h3>
-          <p>
-            Intervention rapide jour et nuit pour fuite d’eau, coupure de courant, problème de chauffage ou climatisation.
-          </p>
-          <p><strong>Une urgence ? Appelez le 07 80 08 09 90.</strong></p>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container footer-flex">
-    <div class="footer-brand">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="footer-logo">
-    </div>
-    <div>
-      SPE FRANCE – 244 Route de Seysses – Toulouse<br>
-      Tél : 07 80 08 09 90 | Mail : <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>
-    </div>
-    <div>
-      Dépannage 7j/7 – 24h/24
-    </div>
-    <div class="footer-links">
-      <a href="mentions-legales.html">Mentions légales</a>
-      <span>•</span>
-      Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a>
-    </div>
-  </div>
-</footer>
+    <script src="script.js"></script>
 </body>
 </html>
+

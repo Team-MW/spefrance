@@ -1,151 +1,150 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Mentions légales – SPE FRANCE</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales – SPE FRANCE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    menuToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navMenu.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
-    
-    // Gérer le sous-menu Services en mobile
-    const servicesItem = navMenu.querySelector('.nav-item-has-children');
-    if (servicesItem) {
-      const servicesLink = servicesItem.querySelector('> a');
-      servicesLink.addEventListener('click', function(e) {
-        if (window.innerWidth <= 800) {
-          e.preventDefault();
-          servicesItem.classList.toggle('active');
-        }
-      });
-    }
-    
-    // Fermer le menu quand on clique sur un lien (sauf Services)
-    const navLinks = navMenu.querySelectorAll('a:not(.nav-item-has-children > a)');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      });
-    });
-    
-    // Fermer le menu quand on clique en dehors
-    document.addEventListener('click', function(event) {
-      const isClickInsideNav = navMenu.contains(event.target);
-      const isClickOnToggle = menuToggle.contains(event.target);
-      
-      if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      }
-    });
-  });
-</script>
-<header>
-  <div class="container navbar">
-    <div class="logo">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="logo-img">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">SPE <span>FRANCE</span></div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li class="nav-item-has-children">
+                            <a href="services.html">Services</a>
+                            <ul class="sub-menu">
+                                <li><a href="plomberie.html">Plomberie</a></li>
+                                <li><a href="electricite.html">Électricité</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-contact">
+                        <a href="tel:0780080990" class="phone-link">07 80 08 09 90</a>
+                        <a href="contact.html" class="btn-primary">Urgence 24h/24</a>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">Accueil &gt; Mentions légales</div>
+            <h1 class="section-title" style="color: white; margin-bottom: 0.5rem;">Mentions légales</h1>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">
+                Informations légales et conditions d'utilisation du site SPE FRANCE.
+            </p>
+        </div>
     </div>
-    <button class="menu-toggle" aria-label="Menu" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav-menu" id="navMenu">
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li class="nav-item-has-children">
-          <a href="services.html">Services</a>
-          <ul>
-            <li><a href="plomberie.html">Plomberie</a></li>
-            <li><a href="electricite.html">Électricité</a></li>
-          </ul>
-        </li>
-        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
-<div class="page-header">
-  <div class="container">
-    <div class="breadcrumb">Accueil &gt; Mentions légales</div>
-    <h1 class="section-title">Mentions légales</h1>
-    <p class="section-subtitle">Informations légales et conditions d’utilisation du site SPE FRANCE.</p>
-  </div>
-</div>
+    <main>
+        <section class="main-content">
+            <div class="container">
+                <div class="legal-content">
+                    <article class="legal-block">
+                        <h2>Éditeur du site</h2>
+                        <p><strong>SPE FRANCE</strong></p>
+                        <p>244 Route de Seysses – 31100 Toulouse – France</p>
+                        <p>Tél : <a href="tel:0780080990">07 80 08 09 90</a></p>
+                        <p>Email : <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
+                        <p>Responsable de la publication : SPE FRANCE</p>
+                    </article>
 
-<main>
-  <section class="main-content">
-    <div class="container legal-content">
-      <article class="legal-block">
-        <h2>Éditeur du site</h2>
-        <p><strong>SPE FRANCE</strong></p>
-        <p>244 Route de Seysses – 31100 Toulouse – France</p>
-        <p>Tél : <a href="tel:0780080990">07 80 08 09 90</a></p>
-        <p>Email : <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
-        <p>Responsable de la publication : SPE FRANCE</p>
-      </article>
+                    <article class="legal-block">
+                        <h2>Hébergement</h2>
+                        <p>Le site est hébergé par un prestataire spécialisé situé en Union européenne. Pour toute demande relative à l'hébergement, merci de contacter SPE FRANCE via les coordonnées ci-dessus.</p>
+                    </article>
 
-      <article class="legal-block">
-        <h2>Hébergement</h2>
-        <p>Le site est hébergé par un prestataire spécialisé situé en Union européenne. Pour toute demande relative à l’hébergement, merci de contacter SPE FRANCE via les coordonnées ci-dessus.</p>
-      </article>
+                    <article class="legal-block">
+                        <h2>Propriété intellectuelle</h2>
+                        <p>L'ensemble des contenus présents sur ce site (textes, visuels, logos, icônes, mises en page, etc.) est la propriété exclusive de SPE FRANCE ou fait l'objet d'une autorisation d'utilisation. Toute reproduction, représentation, modification ou diffusion, partielle ou totale, est interdite sans autorisation écrite préalable.</p>
+                    </article>
 
-      <article class="legal-block">
-        <h2>Propriété intellectuelle</h2>
-        <p>L’ensemble des contenus présents sur ce site (textes, visuels, logos, icônes, mises en page, etc.) est la propriété exclusive de SPE FRANCE ou fait l’objet d’une autorisation d’utilisation. Toute reproduction, représentation, modification ou diffusion, partielle ou totale, est interdite sans autorisation écrite préalable.</p>
-      </article>
+                    <article class="legal-block">
+                        <h2>Données personnelles</h2>
+                        <p>Les informations collectées via les formulaires sont uniquement destinées au traitement des demandes de contact ou de devis. Elles ne sont ni cédées ni vendues à des tiers. Conformément au Règlement (UE) 2016/679 (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles en écrivant à <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>.</p>
+                    </article>
 
-      <article class="legal-block">
-        <h2>Données personnelles</h2>
-        <p>Les informations collectées via les formulaires sont uniquement destinées au traitement des demandes de contact ou de devis. Elles ne sont ni cédées ni vendues à des tiers. Conformément au Règlement (UE) 2016/679 (RGPD), vous disposez d’un droit d’accès, de rectification et de suppression de vos données personnelles en écrivant à <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>.</p>
-      </article>
+                    <article class="legal-block">
+                        <h2>Responsabilité</h2>
+                        <p>SPE FRANCE met tout en œuvre pour assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, la responsabilité de l'éditeur ne saurait être engagée en cas d'erreur ou d'omission. L'utilisateur s'engage à utiliser le site sous sa propre responsabilité.</p>
+                    </article>
 
-      <article class="legal-block">
-        <h2>Responsabilité</h2>
-        <p>SPE FRANCE met tout en œuvre pour assurer l’exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, la responsabilité de l’éditeur ne saurait être engagée en cas d’erreur ou d’omission. L’utilisateur s’engage à utiliser le site sous sa propre responsabilité.</p>
-      </article>
+                    <article class="legal-block">
+                        <h2>Crédits</h2>
+                        <p>Site conçu et développé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a>.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <article class="legal-block">
-        <h2>Crédits</h2>
-        <p>Site conçu et développé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a>.</p>
-      </article>
-    </div>
-  </section>
-</main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SPE FRANCE</h3>
+                    <p>Votre partenaire de confiance pour tous vos travaux de plomberie, électricité, chauffage et climatisation à Toulouse et son agglomération.</p>
+                    <p><strong>Adresse :</strong> 244 Route de Seysses – 31100 Toulouse</p>
+                    <p><strong>Tél :</strong> <a href="tel:0780080990">07 80 08 09 90</a></p>
+                    <p><strong>Mail :</strong> <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li>Plomberie</li>
+                        <li>Électricité</li>
+                        <li>Chauffage & Chaudières</li>
+                        <li>Climatisation & Ventilation</li>
+                        <li>Dépannage 24h/24</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Urgence ?</h4>
+                    <p><strong>Dépannage 7j/7 – 24h/24</strong></p>
+                    <p><a href="tel:0780080990" style="font-size: 1.2rem; font-weight: 700;">07 80 08 09 90</a></p>
+                    <a href="contact.html" class="btn-primary">Demander un devis</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SPE FRANCE. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <span>Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<footer>
-  <div class="container footer-flex">
-    <div class="footer-brand">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="footer-logo">
-    </div>
-    <div>
-      SPE FRANCE – 244 Route de Seysses – Toulouse<br>
-      Tél : 07 80 08 09 90 | Mail : <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>
-    </div>
-    <div>
-      Dépannage 7j/7 – 24h/24 • Plomberie & Électricité
-    </div>
-    <div class="footer-links">
-      <a href="mentions-legales.html">Mentions légales</a>
-      <span>•</span>
-      Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a>
-    </div>
-  </div>
-</footer>
+    <script src="script.js"></script>
 </body>
 </html>
 

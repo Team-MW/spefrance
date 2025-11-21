@@ -1,276 +1,526 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>SPE FRANCE – Plomberie & Électricité à Toulouse</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPE FRANCE – Plomberie & Électricité à Toulouse</title>
+    <meta name="description" content="SPE FRANCE intervient à Toulouse, Blagnac, Colomiers, Tournefeuille, Cugnaux, Muret pour vos travaux de plomberie, électricité, chauffage et climatisation. Dépannage 7j/7 – 24h/24.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    
-    menuToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navMenu.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
-    
-    // Gérer le sous-menu Services en mobile
-    const servicesItem = navMenu.querySelector('.nav-item-has-children');
-    if (servicesItem) {
-      const servicesLink = servicesItem.querySelector('> a');
-      servicesLink.addEventListener('click', function(e) {
-        if (window.innerWidth <= 800) {
-          e.preventDefault();
-          servicesItem.classList.toggle('active');
-        }
-      });
-    }
-    
-    // Fermer le menu quand on clique sur un lien (sauf Services)
-    const navLinks = navMenu.querySelectorAll('a:not(.nav-item-has-children > a)');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      });
-    });
-    
-    // Fermer le menu quand on clique en dehors
-    document.addEventListener('click', function(event) {
-      const isClickInsideNav = navMenu.contains(event.target);
-      const isClickOnToggle = menuToggle.contains(event.target);
-      
-      if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-      }
-    });
-  });
-</script>
-<header>
-  <div class="container navbar">
-    <div class="logo">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="logo-img">
-    </div>
-    <button class="menu-toggle" aria-label="Menu" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav-menu" id="navMenu">
-      <ul>
-        <li><a href="index.html" class="active">Accueil</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li class="nav-item-has-children">
-          <a href="services.html">Services</a>
-          <ul>
-            <li><a href="plomberie.html">Plomberie</a></li>
-            <li><a href="electricite.html">Électricité</a></li>
-          </ul>
-        </li>
-        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">SPE <span>FRANCE</span></div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li class="nav-item-has-children">
+                            <a href="services.html">Services</a>
+                            <ul class="sub-menu">
+                                <li><a href="plomberie.html">Plomberie</a></li>
+                                <li><a href="electricite.html">Électricité</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="zone-intervention.html">Zone d'intervention</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-contact">
+                        <a href="tel:0780080990" class="phone-link">07 80 08 09 90</a>
+                        <a href="#contact" class="btn-primary">Urgence 24h/24</a>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<main>
-  <section class="hero">
-    <div class="container hero-content">
-      <div>
-        <div class="badge">Dépannage 7j/7 – 24h/24</div>
-        <h1>Plomberie, électricité, chauffage & climatisation à Toulouse et agglomération</h1>
-        <p>
-          SPE FRANCE intervient à <strong>Toulouse, Blagnac, Colomiers, Tournefeuille, Cugnaux, Muret</strong> et dans toute la métropole.
-          Intervention rapide, travail soigné et respect du devis.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="tel:0780080990" class="btn btn-primary">📞 Urgence 24h/24</a>
-          <a href="contact.html" class="btn btn-outline">Demander un devis gratuit</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="particles"></div>
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
         </div>
-      </div>
-
-      <div class="hero-card">
-        <h3>Vos artisans de confiance à Toulouse</h3>
-        <p><strong>Adresse :</strong> 244 Route de Seysses – Toulouse</p>
-        <p><strong>Tél :</strong> 07 80 08 09 90</p>
-        <p><strong>Mail :</strong> <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
-        <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5!2d1.4088894!3d43.6046522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ab%3A0x406f69c2f3ff500!2s244%20Route%20de%20Seysses%2C%2031100%20Toulouse!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr&q=244+Route+de+Seysses,+31100+Toulouse,+France"
-            width="100%" 
-            height="250" 
-            style="border:0; border-radius: 12px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Localisation SPE FRANCE - 244 Route de Seysses, Toulouse">
-          </iframe>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-pulse"></span>
+                    <span>Dépannage 7j/7 – 24h/24</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Plomberie, électricité,</span>
+                    <span class="title-line highlight">chauffage & climatisation</span>
+                    <span class="title-line">à Toulouse et agglomération</span>
+                </h1>
+                <p class="hero-description">
+                    SPE FRANCE intervient à <strong>Toulouse, Blagnac, Colomiers, Tournefeuille, Cugnaux, Muret</strong> et dans toute la métropole. Intervention rapide, travail soigné et respect du devis.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="tel:0780080990" class="btn-hero-primary">
+                        <span>📞 Urgence 24h/24</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M18.3333 14.075V16.575C18.3333 17.1417 18.1083 17.6583 17.7167 18.05C17.325 18.4417 16.8083 18.6667 16.2417 18.6667C7.39167 18.6667 1.33333 12.6083 1.33333 3.75833C1.33333 3.19167 1.55833 2.675 1.95 2.28333C2.34167 1.89167 2.85833 1.66667 3.425 1.66667H5.925C6.49167 1.66667 7.00833 1.89167 7.4 2.28333C7.79167 2.675 8.01667 3.19167 8.01667 3.75833C8.01667 4.89167 8.24167 5.99167 8.65833 7.00833C8.84167 7.44167 8.83333 7.93333 8.64167 8.35833L7.13333 11.3583C8.80833 13.8083 11.1917 16.1917 13.6417 17.8667L16.6417 16.3583C17.0667 16.1667 17.5583 16.1583 17.9917 16.3417C19.0083 16.7583 20.1083 16.9833 21.2417 16.9833C21.8083 16.9833 22.325 17.2083 22.7167 17.6C23.1083 17.9917 23.3333 18.5083 23.3333 19.075V21.575Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn-hero-secondary">
+                        <span>Demander un devis gratuit</span>
+                    </a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="feature-text">Plomberie</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="feature-text">Électricité</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="feature-text">Chauffage & Climatisation</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="feature-text">Intervention rapide</span>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="stat-value" data-target="24">0</div>
+                        <div class="stat-label">h/24 disponible</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="stat-value" data-target="7">0</div>
+                        <div class="stat-label">j/7 intervention</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="stat-value" data-target="100">0</div>
+                        <div class="stat-label">% satisfaction</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-contact">
-          Intervention en <strong>plomberie</strong>, <strong>électricité</strong>, <strong>chauffage</strong> et <strong>climatisation</strong>.
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <h2 class="section-title">Discutons ensemble de votre projet</h2>
+            <p class="section-subtitle">Premier devis gratuit, sans engagement</p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="tel:0780080990" class="btn-hero-primary" style="display: inline-flex; align-items: center; gap: 0.75rem;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M18.3333 14.075V16.575C18.3333 17.1417 18.1083 17.6583 17.7167 18.05C17.325 18.4417 16.8083 18.6667 16.2417 18.6667C7.39167 18.6667 1.33333 12.6083 1.33333 3.75833C1.33333 3.19167 1.55833 2.675 1.95 2.28333C2.34167 1.89167 2.85833 1.66667 3.425 1.66667H5.925C6.49167 1.66667 7.00833 1.89167 7.4 2.28333C7.79167 2.675 8.01667 3.19167 8.01667 3.75833C8.01667 4.89167 8.24167 5.99167 8.65833 7.00833C8.84167 7.44167 8.83333 7.93333 8.64167 8.35833L7.13333 11.3583C8.80833 13.8083 11.1917 16.1917 13.6417 17.8667L16.6417 16.3583C17.0667 16.1667 17.5583 16.1583 17.9917 16.3417C19.0083 16.7583 20.1083 16.9833 21.2417 16.9833C21.8083 16.9833 22.325 17.2083 22.7167 17.6C23.1083 17.9917 23.3333 18.5083 23.3333 19.075V21.575Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Appelez-nous au 07 80 08 09 90</span>
+                </a>
+                <p style="margin-top: 1.5rem; color: var(--text-light);">
+                    Ou envoyez-nous un email à <a href="mailto:spefrance@contact.fr" style="color: var(--secondary-color); font-weight: 600;">spefrance@contact.fr</a>
+                </p>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Nos interventions</h2>
-      <p class="section-subtitle">
-        Découvrez quelques-unes de nos interventions récentes en plomberie, électricité, chauffage et climatisation
-        à Toulouse, Blagnac, Colomiers, Tournefeuille, Cugnaux et Muret.
-        Chaque projet est réalisé avec soin, respect des normes et satisfaction client garantie.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Plomberie</h3>
-          <p>
-            Installation, réparation et dépannage de vos équipements sanitaires. Fuites, robinetterie, chauffe-eau,
-            toilettes, canalisations — nos plombiers interviennent 7j/7 à Toulouse et ses environs.
-          </p>
-          <ul class="list">
-            <li>Recherche et réparation de fuites</li>
-            <li>Remplacement de robinetterie et sanitaires</li>
-            <li>Dépannage chauffe-eau et ballon</li>
-          </ul>
-          <a href="plomberie.html" class="btn btn-outline" style="margin-top:10px;">En savoir plus</a>
+    <!-- Testimonials & Stats Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Ce sont nos clients qui parlent le mieux de nous !</h2>
+            <p class="section-description">Chez SPE FRANCE, la satisfaction de nos clients est notre priorité…et la qualité de nos réalisations en est le reflet. Découvrez les témoignages de nos clients qui ont fait confiance à SPE FRANCE pour leurs travaux de plomberie, électricité, chauffage et climatisation à Toulouse et ses environs.</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">chantiers depuis 2009</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">% de clients satisfaits</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-badges">
+                        <span class="badge">Certifications Qualibat et RGE</span>
+                        <span class="badge">Entreprise adhérente à la Fédération Française du Bâtiment</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-          <h3>Électricité</h3>
-          <p>
-            Travaux d’électricité générale, installation de tableaux, mise aux normes et dépannage.
-            Nos électriciens assurent la sécurité et la performance de vos installations.
-          </p>
-          <ul class="list">
-            <li>Dépannage de pannes électriques</li>
-            <li>Mise en sécurité et conformité</li>
-            <li>Installation de prise, éclairage, disjoncteur</li>
-          </ul>
-          <a href="electricite.html" class="btn btn-outline" style="margin-top:10px;">En savoir plus</a>
+    <!-- Expertises Section -->
+    <section class="expertises-section" id="metiers">
+        <div class="container">
+            <h2 class="section-title">Nos interventions</h2>
+            <p class="section-description">Découvrez quelques-unes de nos interventions récentes en plomberie, électricité, chauffage et climatisation à Toulouse, Blagnac, Colomiers, Tournefeuille, Cugnaux et Muret. Chaque projet est réalisé avec soin, respect des normes et satisfaction client garantie.</p>
+            <div class="expertises-grid">
+                <div class="expertise-card">
+                    <div class="expertise-card-header">
+                        <div class="expertise-icon">🚿</div>
+                        <h3>PLOMBERIE</h3>
+                        <button class="expand-btn" aria-label="Voir les détails">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="expertise-summary">Installation, réparation et dépannage de vos équipements sanitaires</p>
+                    <div class="expertise-details">
+                        <ul class="sub-services-list">
+                            <li><span class="service-icon">✓</span> Recherche et réparation de fuites</li>
+                            <li><span class="service-icon">✓</span> Remplacement de robinetterie et sanitaires</li>
+                            <li><span class="service-icon">✓</span> Dépannage chauffe-eau et ballon</li>
+                            <li><span class="service-icon">✓</span> Création et modification de réseaux</li>
+                            <li><span class="service-icon">✓</span> Salles de bains et cuisine</li>
+                            <li><span class="service-icon">✓</span> Rénovation de sanitaires</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-card-header">
+                        <div class="expertise-icon">⚡</div>
+                        <h3>ÉLECTRICITÉ</h3>
+                        <button class="expand-btn" aria-label="Voir les détails">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="expertise-summary">Travaux d'électricité générale, installation de tableaux, mise aux normes</p>
+                    <div class="expertise-details">
+                        <ul class="sub-services-list">
+                            <li><span class="service-icon">✓</span> Dépannage de pannes électriques</li>
+                            <li><span class="service-icon">✓</span> Mise en sécurité et conformité</li>
+                            <li><span class="service-icon">✓</span> Installation de prise, éclairage, disjoncteur</li>
+                            <li><span class="service-icon">✓</span> Mise à niveau d'installations</li>
+                            <li><span class="service-icon">✓</span> Création de circuits</li>
+                            <li><span class="service-icon">✓</span> Éclairage et prises</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-card-header">
+                        <div class="expertise-icon">🔥</div>
+                        <h3>CHAUFFAGE & CHAUDIÈRES</h3>
+                        <button class="expand-btn" aria-label="Voir les détails">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="expertise-summary">Installation, entretien et réparation de chaudières gaz, électriques et fioul</p>
+                    <div class="expertise-details">
+                        <ul class="sub-services-list">
+                            <li><span class="service-icon">✓</span> Entretien annuel de chaudière</li>
+                            <li><span class="service-icon">✓</span> Dépannage rapide en hiver</li>
+                            <li><span class="service-icon">✓</span> Conseil pour optimiser votre chauffage</li>
+                            <li><span class="service-icon">✓</span> Installation de chaudières</li>
+                            <li><span class="service-icon">✓</span> Réparation et maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-card-header">
+                        <div class="expertise-icon">❄️</div>
+                        <h3>CLIMATISATION & VENTILATION</h3>
+                        <button class="expand-btn" aria-label="Voir les détails">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="expertise-summary">Pose, réparation et maintenance de systèmes de climatisation réversible et VMC</p>
+                    <div class="expertise-details">
+                        <ul class="sub-services-list">
+                            <li><span class="service-icon">✓</span> Installation de climatisation réversible</li>
+                            <li><span class="service-icon">✓</span> Contrats d'entretien</li>
+                            <li><span class="service-icon">✓</span> VMC simple et double flux</li>
+                            <li><span class="service-icon">✓</span> Réparation et dépannage</li>
+                            <li><span class="service-icon">✓</span> Maintenance préventive</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-          <h3>Chauffage & Chaudières</h3>
-          <p>
-            Installation, entretien et réparation de chaudières gaz, électriques et fioul.
-            Améliorez votre confort et réduisez votre consommation avec SPE FRANCE.
-          </p>
-          <ul class="list">
-            <li>Entretien annuel de chaudière</li>
-            <li>Dépannage rapide en hiver</li>
-            <li>Conseil pour optimiser votre chauffage</li>
-          </ul>
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Votre projet encadré de A à Z à Toulouse</h2>
+            <p class="section-subtitle">NOTRE FORCE : des équipes de terrain intégrées, un suivi technique continu et un interlocuteur unique du premier rendez-vous à la réception.</p>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Prise de contact</h3>
+                    <p>échange, visite, écoute du besoin</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Étude & devis clair</h3>
+                    <p>relevés, chiffrage détaillé, planification</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Validation & lancement</h3>
+                    <p>contractualisation et préparation technique</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Réalisation</h3>
+                    <p>nos équipes assurent la coordination et la pose</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Réception & garanties</h3>
+                    <p>livraison, contrôle qualité, levée de réserves</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-          <h3>Climatisation & Ventilation</h3>
-          <p>
-            Pose, réparation et maintenance de systèmes de climatisation réversible et VMC.
-            Profitez d’un air sain et d’une température agréable toute l’année.
-          </p>
-          <ul class="list">
-            <li>Installation de climatisation réversible</li>
-            <li>Contrats d’entretien</li>
-            <li>VMC simple et double flux</li>
-          </ul>
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <h2 class="section-title">Pourquoi choisir SPE FRANCE ?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏰</div>
+                    <h3>Disponibilité 24h/24</h3>
+                    <p>Dépannage 7j/7 et 24h/24 pour toutes vos urgences</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Intervention rapide</h3>
+                    <p>Arrivée dans l'heure pour les urgences, devis rapide pour les travaux</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">👷</div>
+                    <h3>Artisans qualifiés</h3>
+                    <p>Techniciens expérimentés et assurés pour tous vos travaux</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✅</div>
+                    <h3>Respect du devis</h3>
+                    <p>Prix transparents, pas de surprise, travail soigné garanti</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔧</div>
+                    <h3>Multi-services</h3>
+                    <p>Plomberie, électricité, chauffage et climatisation en un seul interlocuteur</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📍</div>
+                    <h3>Zone d'intervention étendue</h3>
+                    <p>Toulouse et toute son agglomération : Blagnac, Colomiers, Tournefeuille, Cugnaux, Muret</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💬</div>
+                    <h3>Contact direct</h3>
+                    <p>Appelez-nous directement au 07 80 08 09 90, réponse immédiate</p>
+                </div>
+            </div>
+            <div class="cta-box">
+                <p>Une urgence ? Appelez-nous dès maintenant au 07 80 08 09 90</p>
+                <a href="tel:0780080990" class="btn-primary">📞 Urgence immédiate</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section style="background:#ffffff;">
-    <div class="container">
-      <h2 class="section-title">Avis de nos clients à Toulouse et agglomération</h2>
-      <p class="section-subtitle">
-        Découvrez les témoignages de nos clients qui ont fait confiance à SPE FRANCE
-        pour leurs travaux de plomberie, électricité, chauffage et climatisation à Toulouse et ses environs.
-      </p>
-
-      <div class="testimonials">
-        <div class="testimonial">
-          <p>“Intervention rapide et très professionnelle ! Le technicien est venu dans l’heure pour réparer une fuite d’eau. Service impeccable et prix honnête.”</p>
-          <p><strong>Julie R. – Colomiers</strong></p>
+    <!-- Intervention Zones Section -->
+    <section class="zones-section">
+        <div class="container">
+            <h2 class="section-title">Nos zones d'intervention</h2>
+            <p class="section-subtitle">SPE FRANCE intervient à Toulouse et dans toutes les communes de son agglomération</p>
+            <p class="section-description">SPE FRANCE intervient à <strong>Toulouse, Blagnac, Colomiers, Tournefeuille, Cugnaux, Muret</strong> et dans toute la métropole toulousaine pour vos urgences et vos travaux programmés.</p>
+            <p class="section-description">Cette proximité garantit une intervention rapide, un suivi réactif et une présence terrain quotidienne pour tous vos besoins en plomberie, électricité, chauffage et climatisation.</p>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <h3>Toulouse</h3>
+                    <p>Intervention rapide dans toute la ville pour plomberie, électricité, chauffage et climatisation</p>
+                </div>
+                <div class="domain-card">
+                    <h3>Blagnac</h3>
+                    <p>Dépannage et travaux à Blagnac et ses environs</p>
+                </div>
+                <div class="domain-card">
+                    <h3>Colomiers</h3>
+                    <p>Service disponible à Colomiers pour tous vos besoins</p>
+                </div>
+                <div class="domain-card">
+                    <h3>Tournefeuille & Cugnaux</h3>
+                    <p>Intervention dans l'ouest toulousain</p>
+                </div>
+                <div class="domain-card">
+                    <h3>Muret</h3>
+                    <p>Service disponible à Muret et ses environs</p>
+                </div>
+                <div class="domain-card">
+                    <h3>Métropole toulousaine</h3>
+                    <p>Nous couvrons toute l'agglomération toulousaine</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="testimonial">
-          <p>“SPE FRANCE a installé notre climatisation réversible à Colomiers. Travail propre, ponctuel et conforme au devis. Je recommande sans hésiter.”</p>
-          <p><strong>Karim B. – Toulouse</strong></p>
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="container">
+            <h2 class="section-title">Nos certifications & garanties</h2>
+            <p class="section-subtitle">Des garanties solides pour vos travaux</p>
+            <div class="certifications-list">
+                <div class="cert-item">
+                    <strong>RGE Qualibat</strong> – isolation, couverture, plâtrerie, menuiserie
+                </div>
+                <div class="cert-item">
+                    <strong>CERTIBAT Rénovation Énergétique</strong> – offre globale
+                </div>
+                <div class="cert-item">
+                    <strong>Assurance décennale & RC Pro</strong> – SMABTP (en cours de validité)
+                </div>
+                <div class="cert-item">
+                    <strong>Entreprise locale enregistrée au RCS Toulouse</strong>
+                </div>
+                <div class="cert-item">
+                    <strong>SPE FRANCE</strong> – artisans de confiance à Toulouse
+                </div>
+            </div>
+            <p class="cert-description">Avec SPE FRANCE, vous bénéficiez de <strong>l'expertise d'artisans qualifiés</strong> et de la <strong>réactivité d'une entreprise locale</strong> disponible 7j/7 et 24h/24.</p>
+            <div class="vision-box">
+                <h3>Une vision globale pour des résultats durables</h3>
+                <p>Contrairement à d'autres acteurs, notre expertise ne se limite pas à un seul domaine. Nous analysons l'ensemble des paramètres de votre logement pour proposer des solutions sur mesure, parfaitement adaptées à vos besoins. Cette approche globale garantit des résultats optimaux, tant en termes de confort que d'économies.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="testimonial">
-          <p>“Panne électrique réparée dans la journée à Blagnac. Explications claires et équipe très sympathique.”</p>
-          <p><strong>Alain M. – Blagnac</strong></p>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Questions fréquentes sur la rénovation tous corps d'État</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">SPE FRANCE intervient-elle vraiment 24h/24 ?</h3>
+                    <p class="faq-answer">Oui. SPE FRANCE propose un <strong>service de dépannage 7j/7 et 24h/24</strong> pour les urgences en plomberie, électricité, chauffage et climatisation.<br>
+                    Nos techniciens arrivent rapidement pour résoudre votre problème en toute sécurité.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Quels types d'interventions proposez-vous ?</h3>
+                    <p class="faq-answer">SPE FRANCE intervient pour tous vos besoins : <strong>plomberie</strong> (fuites, robinetterie, sanitaires), <strong>électricité</strong> (pannes, mises aux normes), <strong>chauffage</strong> (chaudières, entretien) et <strong>climatisation</strong> (installation, réparation, VMC).</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Intervenez-vous chez les particuliers et les professionnels ?</h3>
+                    <p class="faq-answer">Oui. SPE FRANCE intervient aussi bien chez les <strong>particuliers</strong> que les <strong>commerces et petites entreprises</strong> pour tous leurs besoins en plomberie, électricité, chauffage et climatisation.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Quels sont vos délais d'intervention ?</h3>
+                    <p class="faq-answer">Pour les <strong>urgences</strong>, intervention dans l'heure. Pour les <strong>travaux programmés</strong>, nous établissons un devis détaillé et planifions l'intervention selon vos disponibilités.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Respectez-vous les normes de sécurité ?</h3>
+                    <p class="faq-answer">Absolument. Tous nos travaux sont réalisés selon les <strong>normes en vigueur</strong> et nos techniciens sont <strong>qualifiés et assurés</strong> pour garantir votre sécurité.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Comment obtenir un devis ?</h3>
+                    <p class="faq-answer">Contactez-nous par <strong>téléphone au 07 80 08 09 90</strong> ou par <strong>email à spefrance@contact.fr</strong>. Nous établissons un devis gratuit et détaillé pour tous vos projets.</p>
+                </div>
+            </div>
+            <p class="faq-cta">Vous avez un projet de rénovation ? Nos conseillers vous rappellent sous 24h ouvrées.</p>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="image-showcase">
-    <div class="container">
-      <h2 class="section-title">Nos interventions en images</h2>
-      <p class="section-subtitle">
-        Installations impeccables, finitions propres et chantiers sécurisés : un aperçu de notre quotidien.
-      </p>
-      <div class="image-grid">
-        <figure class="image-card">
-          <img src="assets/istockphoto-482115611-612x612.jpg" alt="Artisan plombier SPE FRANCE à l’œuvre">
-          <figcaption>Création complète d’une salle d’eau à Blagnac</figcaption>
-        </figure>
-        <figure class="image-card">
-          <img src="assets/Electricien-freepick-1920x1280.jpg" alt="Électricien SPE FRANCE intervenant sur un tableau">
-          <figcaption>Mise en sécurité d’une installation électrique à Toulouse</figcaption>
-        </figure>
-        <figure class="image-card">
-          <img src="assets/1514199-corporation-maitres-mecaniciens-tuyauterie-quebec.jpg" alt="Technicien SPE FRANCE pour le chauffage et la clim">
-          <figcaption>Dépannage chauffage et climatisation à Colomiers</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+    <!-- Callback Section -->
+    <section class="callback-section">
+        <div class="container">
+            <h2 class="section-title">Un besoin, une question ?</h2>
+            <p class="section-subtitle">Contactez-nous directement par téléphone ou email.</p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="tel:0780080990" class="btn-hero-primary" style="display: inline-flex; align-items: center; gap: 0.75rem;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M18.3333 14.075V16.575C18.3333 17.1417 18.1083 17.6583 17.7167 18.05C17.325 18.4417 16.8083 18.6667 16.2417 18.6667C7.39167 18.6667 1.33333 12.6083 1.33333 3.75833C1.33333 3.19167 1.55833 2.675 1.95 2.28333C2.34167 1.89167 2.85833 1.66667 3.425 1.66667H5.925C6.49167 1.66667 7.00833 1.89167 7.4 2.28333C7.79167 2.675 8.01667 3.19167 8.01667 3.75833C8.01667 4.89167 8.24167 5.99167 8.65833 7.00833C8.84167 7.44167 8.83333 7.93333 8.64167 8.35833L7.13333 11.3583C8.80833 13.8083 11.1917 16.1917 13.6417 17.8667L16.6417 16.3583C17.0667 16.1667 17.5583 16.1583 17.9917 16.3417C19.0083 16.7583 20.1083 16.9833 21.2417 16.9833C21.8083 16.9833 22.325 17.2083 22.7167 17.6C23.1083 17.9917 23.3333 18.5083 23.3333 19.075V21.575Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>07 80 08 09 90</span>
+                </a>
+                <p style="margin-top: 1rem; color: rgba(255,255,255,0.9);">
+                    Email : <a href="mailto:spefrance@contact.fr" style="color: white; font-weight: 600;">spefrance@contact.fr</a>
+                </p>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Une urgence ? Appelez-nous dès maintenant !</h2>
-      <p class="section-subtitle">
-        SPE FRANCE intervient 7j/7 et 24h/24 à Toulouse et dans toute son agglomération pour les dépannages urgents
-        en plomberie, électricité, chauffage ou climatisation.
-        Nos techniciens arrivent rapidement pour résoudre votre problème en toute sécurité.
-      </p>
-      <div class="hero-buttons">
-        <a href="tel:0780080990" class="btn btn-primary">📞 Urgence immédiate</a>
-        <a href="contact.html" class="btn btn-outline">Demander un devis gratuit</a>
-      </div>
-    </div>
-  </section>
-</main>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SPE FRANCE</h3>
+                    <p>Votre partenaire de confiance pour tous vos travaux de plomberie, électricité, chauffage et climatisation à Toulouse et son agglomération.</p>
+                    <p><strong>Adresse :</strong> 244 Route de Seysses – 31100 Toulouse</p>
+                    <p><strong>Tél :</strong> <a href="tel:0780080990">07 80 08 09 90</a></p>
+                    <p><strong>Mail :</strong> <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li>Plomberie</li>
+                        <li>Électricité</li>
+                        <li>Chauffage & Chaudières</li>
+                        <li>Climatisation & Ventilation</li>
+                        <li>Dépannage 24h/24</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#metiers">Services</a></li>
+                        <li><a href="#zones">Zone d'intervention</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Urgence ?</h4>
+                    <p><strong>Dépannage 7j/7 – 24h/24</strong></p>
+                    <p><a href="tel:0780080990" style="font-size: 1.2rem; font-weight: 700;">07 80 08 09 90</a></p>
+                    <a href="#contact" class="btn-primary">Demander un devis</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SPE FRANCE. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="#">Mentions légales</a>
+                    <span>•</span>
+                    <span>Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<footer>
-  <div class="container footer-flex">
-    <div class="footer-brand">
-      <img src="assets/SPE-FRANCE.png" alt="SPE FRANCE" class="footer-logo">
-    </div>
-    <div>
-      SPE FRANCE – 244 Route de Seysses – Toulouse<br>
-      Tél : 07 80 08 09 90 | Mail : <a href="mailto:spefrance@contact.fr">spefrance@contact.fr</a>
-    </div>
-    <div>
-      Dépannage 7j/7 – 24h/24 • Plomberie & Électricité
-    </div>
-    <div class="footer-links">
-      <a href="mentions-legales.html">Mentions légales</a>
-      <span>•</span>
-      Site codé par <a href="https://microdidact.com/" target="_blank" rel="noopener">Microdidact</a>
-    </div>
-  </div>
-</footer>
+    <script src="script.js"></script>
 </body>
 </html>
+
