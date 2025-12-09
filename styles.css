@@ -979,21 +979,41 @@ section {
 .service-features {
     list-style: none;
     margin-bottom: 24px;
+    padding: 0;
 }
 
-.service-features li {
-    padding: 8px 0;
+.service-card .service-features li {
+    padding: 10px 0 10px 72px;
+    margin: 0;
     color: var(--text-secondary);
     position: relative;
-    padding-left: 24px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-indent: 0;
+    list-style: none;
 }
 
-.service-features li::before {
+.service-card .service-features li::before {
     content: '✓';
     position: absolute;
     left: 0;
+    top: 10px;
     color: var(--primary-blue);
     font-weight: 700;
+    font-size: 0.875rem;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 102, 255, 0.1);
+    border-radius: 50%;
+    line-height: 1;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    overflow: visible;
 }
 
 .service-link {
@@ -1493,77 +1513,81 @@ section {
    STATS SECTION
    ============================================ */
 .stats-section {
-    background: var(--bg-dark);
-    color: white;
-    padding: 100px 0;
+    background: var(--bg-light);
+    color: var(--text-primary);
+    padding: 40px 0;
 }
 
 .stats-content {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 64px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
 }
 
 .stat-card-large {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-number-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
 }
 
 .stat-number-large {
-    font-size: clamp(4rem, 8vw, 7rem);
-    font-weight: 900;
-    background: var(--gradient-tricolor);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
     line-height: 1;
-    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));
 }
 
 .stat-unit-large {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 700;
-    background: var(--gradient-tricolor);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-left: 8px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-blue);
 }
 
 .stat-label-large {
-    font-size: 1.125rem;
-    opacity: 0.9;
-    margin-top: 16px;
-    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    font-weight: 400;
 }
 
 .stats-grid-small {
     display: flex;
-    flex-direction: column;
-    gap: 32px;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .stat-item {
     text-align: center;
-    padding: 24px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    min-width: 100px;
 }
 
 .stat-value {
-    font-size: 3rem;
-    font-weight: 800;
-    color: white;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .stat-label {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    font-weight: 500;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
 /* ============================================
@@ -2009,16 +2033,44 @@ section {
         justify-content: center;
     }
     
+    .stats-section {
+        padding: 32px 0;
+    }
+    
     .stats-content {
-        grid-template-columns: 1fr;
-        gap: 48px;
-        text-align: center;
+        flex-direction: column;
+        gap: 24px;
     }
     
     .stats-grid-small {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+        gap: 16px;
+        width: 100%;
+    }
+    
+    .stat-item {
+        flex: 1;
+        min-width: auto;
+        padding: 12px 16px;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .stat-number-large {
+        font-size: 1.75rem;
+    }
+    
+    .stat-unit-large {
+        font-size: 1.25rem;
+    }
+    
+    .stat-label-large {
+        font-size: 0.8rem;
     }
     
     .floating-cta {
